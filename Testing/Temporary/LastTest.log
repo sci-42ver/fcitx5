@@ -1,0 +1,4126 @@
+Start testing: Apr 21 17:42 CST
+----------------------------------------------------------
+1/43 Testing: testdbusmessage
+1/43 Test: testdbusmessage
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/dbus_wrapper.sh" "/usr/bin/dbus-daemon" "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testdbusmessage"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testdbusmessage" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:09.076549 testdbusmessage.cpp:81] (a, 1, 2, 3)
+I2024-04-21 17:42:09.076645 testdbusmessage.cpp:89] ([a, b])
+I2024-04-21 17:42:09.076671 testdbusmessage.cpp:98] ([(a, a), (b, b)])
+I2024-04-21 17:42:09.076703 testdbusmessage.cpp:104] b
+I2024-04-21 17:42:09.076716 testdbusmessage.cpp:109] Variant(sig=, content=)
+I2024-04-21 17:42:09.076734 testdbusmessage.cpp:114] v
+I2024-04-21 17:42:09.076747 testdbusmessage.cpp:116] Variant(sig=s, content=abc)
+I2024-04-21 17:42:09.076767 testdbusmessage.cpp:120] UnixFD(fd=0)
+I2024-04-21 17:42:09.076785 testdbusmessage.cpp:124] h
+I2024-04-21 17:42:09.076798 testdbusmessage.cpp:126] UnixFD(fd=0)
+I2024-04-21 17:42:09.076816 testdbusmessage.cpp:134] Variant(sig=s, content=abcd)
+I2024-04-21 17:42:09.076833 testdbusmessage.cpp:135] Variant(sig=s, content=abcd)
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"testdbusmessage" end time: Apr 21 17:42 CST
+"testdbusmessage" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/43 Testing: testdbus
+2/43 Test: testdbus
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/dbus_wrapper.sh" "/usr/bin/dbus-daemon" "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testdbus"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testdbus" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:09.096869 testdbus.cpp:102] Client sends Introspect
+I2024-04-21 17:42:09.097079 testdbus.cpp:109] Introspect reply: <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"https://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+ <interface name="org.freedesktop.DBus.Peer">
+  <method name="Ping"/>
+  <method name="GetMachineId">
+   <arg type="s" name="machine_uuid" direction="out"/>
+  </method>
+ </interface>
+ <interface name="org.freedesktop.DBus.Introspectable">
+  <method name="Introspect">
+   <arg name="xml_data" type="s" direction="out"/>
+  </method>
+ </interface>
+ <interface name="org.freedesktop.DBus.Properties">
+  <method name="Get">
+   <arg name="interface_name" direction="in" type="s"/>
+   <arg name="property_name" direction="in" type="s"/>
+   <arg name="value" direction="out" type="v"/>
+  </method>
+  <method name="GetAll">
+   <arg name="interface_name" direction="in" type="s"/>
+   <arg name="props" direction="out" type="a{sv}"/>
+  </method>
+  <method name="Set">
+   <arg name="interface_name" direction="in" type="s"/>
+   <arg name="property_name" direction="in" type="s"/>
+   <arg name="value" direction="in" type="v"/>
+  </method>
+  <signal name="PropertiesChanged">
+   <arg type="s" name="interface_name"/>
+   <arg type="a{sv}" name="changed_properties"/>
+   <arg type="as" name="invalidated_properties"/>
+  </signal>
+ </interface>
+ <interface name="org.fcitx.Fcitx.TestDBus.Interface">
+  <method name="test1">
+  </method>
+  <method name="test2">
+   <arg type="i" direction="in"/>
+   <arg type="s" direction="out"/>
+  </method>
+  <method name="test3">
+   <arg type="i" direction="in"/>
+   <arg type="i" direction="out"/>
+   <arg type="u" direction="out"/>
+  </method>
+  <method name="test4">
+   <arg type="v" direction="in"/>
+   <arg type="v" direction="out"/>
+  </method>
+  <method name="test5">
+   <arg type="a{ss}" direction="in"/>
+   <arg type="s" direction="out"/>
+  </method>
+  <method name="testError">
+   <arg type="b" direction="out"/>
+  </method>
+  <signal name="testSignal">
+   <arg type="a(si)"/>
+  </signal>
+  <property name="testProperty" type="i" access="read">
+   <annotation name="org.freedesktop.DBus.Property.EmitsChangedSignal" value="false"/>
+  </property>
+  <property name="testProperty2" type="i" access="readwrite">
+   <annotation name="org.freedesktop.DBus.Property.EmitsChangedSignal" value="false"/>
+  </property>
+ </interface>
+</node>
+
+I2024-04-21 17:42:09.255869 testdbus.cpp:115] Client sends test2
+I2024-04-21 17:42:09.256211 testdbus.cpp:20] test2 called
+I2024-04-21 17:42:09.256359 testdbus.cpp:124] test2 reply: 2
+I2024-04-21 17:42:09.505788 testdbus.cpp:131] Client sends testError
+I2024-04-21 17:42:09.505994 testdbus.cpp:31] testError called
+I2024-04-21 17:42:09.506189 testdbus.cpp:165] Client sends test5
+I2024-04-21 17:42:09.506216 testdbus.cpp:171] a{ss}
+I2024-04-21 17:42:09.506502 testdbus.cpp:176] defg
+I2024-04-21 17:42:09.506537 testdbus.cpp:146] Client sends test4
+I2024-04-21 17:42:09.506717 testdbus.cpp:38] test4 called
+I2024-04-21 17:42:09.506738 testdbus.cpp:39] Variant(sig=i, content=123)
+I2024-04-21 17:42:09.506871 testdbus.cpp:155] 123
+I2024-04-21 17:42:09.755820 testdbus.cpp:183] test3
+I2024-04-21 17:42:09.756155 testdbus.cpp:27] test3 called
+I2024-04-21 17:42:09.756350 testdbus.cpp:194] test3 ret
+I2024-04-21 17:42:09.756421 testdbus.cpp:200] testProperty
+I2024-04-21 17:42:09.756754 testdbus.cpp:87] testSignal
+<end of output>
+Test time =   2.18 sec
+----------------------------------------------------------
+Test Passed.
+"testdbus" end time: Apr 21 17:42 CST
+"testdbus" time elapsed: 00:00:02
+----------------------------------------------------------
+
+3/43 Testing: testservicewatcher
+3/43 Test: testservicewatcher
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/dbus_wrapper.sh" "/usr/bin/dbus-daemon" "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testservicewatcher"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testservicewatcher" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"testservicewatcher" end time: Apr 21 17:42 CST
+"testservicewatcher" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/43 Testing: testflags
+4/43 Test: testflags
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testflags"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testflags" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testflags" end time: Apr 21 17:42 CST
+"testflags" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/43 Testing: teststringutils
+5/43 Test: teststringutils
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/teststringutils"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"teststringutils" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"teststringutils" end time: Apr 21 17:42 CST
+"teststringutils" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/43 Testing: testkey
+6/43 Test: testkey
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testkey"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testkey" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:11.302817 testkey.cpp:150] Insert
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testkey" end time: Apr 21 17:42 CST
+"testkey" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/43 Testing: testutf8
+7/43 Test: testutf8
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testutf8"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testutf8" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.76 sec
+----------------------------------------------------------
+Test Passed.
+"testutf8" end time: Apr 21 17:42 CST
+"testutf8" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/43 Testing: testcolor
+8/43 Test: testcolor
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testcolor"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testcolor" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:12.075855 testcolor.cpp:51] Color parse error
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testcolor" end time: Apr 21 17:42 CST
+"testcolor" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/43 Testing: testi18nstring
+9/43 Test: testi18nstring
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testi18nstring"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testi18nstring" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testi18nstring" end time: Apr 21 17:42 CST
+"testi18nstring" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/43 Testing: testevent
+10/43 Test: testevent
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testevent"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testevent" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:12.092741 testevent.cpp:47] DEFER
+I2024-04-21 17:42:13.092775 testevent.cpp:60] Recur:10
+I2024-04-21 17:42:13.092868 testevent.cpp:85] WRITE
+I2024-04-21 17:42:13.093038 testevent.cpp:73] Recur 2:10 29287155937
+I2024-04-21 17:42:13.093081 testevent.cpp:60] Recur:9
+I2024-04-21 17:42:13.093129 testevent.cpp:38] QUIT1
+I2024-04-21 17:42:13.093175 testevent.cpp:60] Recur:8
+I2024-04-21 17:42:13.093244 testevent.cpp:60] Recur:7
+I2024-04-21 17:42:13.093298 testevent.cpp:60] Recur:6
+I2024-04-21 17:42:13.093355 testevent.cpp:60] Recur:5
+I2024-04-21 17:42:13.093410 testevent.cpp:60] Recur:4
+I2024-04-21 17:42:13.093465 testevent.cpp:60] Recur:3
+I2024-04-21 17:42:13.093519 testevent.cpp:60] Recur:2
+I2024-04-21 17:42:13.093572 testevent.cpp:60] Recur:1
+I2024-04-21 17:42:13.093615 testevent.cpp:60] Recur:0
+I2024-04-21 17:42:13.193416 testevent.cpp:73] Recur 2:9 29287256353
+I2024-04-21 17:42:13.293894 testevent.cpp:73] Recur 2:8 29287356767
+I2024-04-21 17:42:13.394366 testevent.cpp:73] Recur 2:7 29287457245
+I2024-04-21 17:42:13.494521 testevent.cpp:73] Recur 2:6 29287557716
+I2024-04-21 17:42:13.594918 testevent.cpp:73] Recur 2:5 29287657853
+I2024-04-21 17:42:13.695342 testevent.cpp:73] Recur 2:4 29287758269
+I2024-04-21 17:42:13.795518 testevent.cpp:73] Recur 2:3 29287858694
+I2024-04-21 17:42:13.895919 testevent.cpp:73] Recur 2:2 29287958854
+I2024-04-21 17:42:13.996087 testevent.cpp:73] Recur 2:1 29288059271
+I2024-04-21 17:42:14.256011 testevent.cpp:94] CLOSE
+I2024-04-21 17:42:14.256075 testevent.cpp:52] EXIT
+I2024-04-21 17:42:14.256181 testevent.cpp:121] WRITE
+I2024-04-21 17:42:14.256233 testevent.cpp:113] RESET
+I2024-04-21 17:42:16.505796 testevent.cpp:130] EXIT
+I2024-04-21 17:42:17.756059 testevent.cpp:150] TIME
+I2024-04-21 17:42:17.756129 testevent.cpp:142] POST
+I2024-04-21 17:42:19.756874 testevent.cpp:172] DISPATCHER
+I2024-04-21 17:42:19.756944 testevent.cpp:162] POST
+<end of output>
+Test time =   7.67 sec
+----------------------------------------------------------
+Test Passed.
+"testevent" end time: Apr 21 17:42 CST
+"testevent" time elapsed: 00:00:07
+----------------------------------------------------------
+
+11/43 Testing: testlist
+11/43 Test: testlist
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testlist"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testlist" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testlist" end time: Apr 21 17:42 CST
+"testlist" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/43 Testing: testfs
+12/43 Test: testfs
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testfs"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testfs" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testfs" end time: Apr 21 17:42 CST
+"testfs" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/43 Testing: testlibrary
+13/43 Test: testlibrary
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testlibrary"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testlibrary" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testlibrary" end time: Apr 21 17:42 CST
+"testlibrary" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/43 Testing: teststandardpath
+14/43 Test: teststandardpath
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/teststandardpath"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"teststandardpath" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"teststandardpath" end time: Apr 21 17:42 CST
+"teststandardpath" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/43 Testing: testunixfd
+15/43 Test: testunixfd
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testunixfd"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testunixfd" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testunixfd" end time: Apr 21 17:42 CST
+"testunixfd" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/43 Testing: testmetastring
+16/43 Test: testmetastring
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testmetastring"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testmetastring" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testmetastring" end time: Apr 21 17:42 CST
+"testmetastring" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/43 Testing: testhandlertable
+17/43 Test: testhandlertable
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testhandlertable"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testhandlertable" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testhandlertable" end time: Apr 21 17:42 CST
+"testhandlertable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/43 Testing: testsignals
+18/43 Test: testsignals
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testsignals"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testsignals" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testsignals" end time: Apr 21 17:42 CST
+"testsignals" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/43 Testing: testinputbuffer
+19/43 Test: testinputbuffer
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testinputbuffer"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testinputbuffer" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testinputbuffer" end time: Apr 21 17:42 CST
+"testinputbuffer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/43 Testing: testlog
+20/43 Test: testlog
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testlog"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testlog" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.830871 testlog.cpp:15] 1
+I2024-04-21 17:42:19.830910 testlog.cpp:23] [1, 2, 3]
+I2024-04-21 17:42:19.830920 testlog.cpp:26] {(2, 3), (1, 1)}
+I2024-04-21 17:42:19.830932 testlog.cpp:28] (1, 3, a, 0)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testlog" end time: Apr 21 17:42 CST
+"testlog" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/43 Testing: testeventdispatcher
+21/43 Test: testeventdispatcher
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testeventdispatcher"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testeventdispatcher" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testeventdispatcher" end time: Apr 21 17:42 CST
+"testeventdispatcher" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/43 Testing: testrect
+22/43 Test: testrect
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testrect"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testrect" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testrect" end time: Apr 21 17:42 CST
+"testrect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/43 Testing: testfallbackuuid
+23/43 Test: testfallbackuuid
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testfallbackuuid"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testfallbackuuid" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testfallbackuuid" end time: Apr 21 17:42 CST
+"testfallbackuuid" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/43 Testing: testsemver
+24/43 Test: testsemver
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testsemver"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testsemver" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testsemver" end time: Apr 21 17:42 CST
+"testsemver" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/43 Testing: testconfig
+25/43 Test: testconfig
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testconfig"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testconfig" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.853838 testconfig.cpp:41] [1, 2]
+# Int Option
+IntOption=0
+# Color Option
+ColorOption=#000000
+# Bool Option
+BoolOption=True
+# String Option
+StringOption="Test String"
+# Enum Option
+EnumOption=EnumA
+# I18NString
+I18NString=ABCD
+I18NString[zh_CN]=A
+
+[EnumVectorOption]
+0=EnumA
+1=EnumB
+
+[StringVectorOption]
+0=ABC
+1=CDE
+
+[IntVectorOption]
+0=0
+
+[SubConfigOption]
+# Int Option
+IntOption=1
+# Key Option
+KeyOption=
+
+[SubConfigOption/SubSubConfig/0]
+# Int Option
+IntOption=2
+# Key Option
+KeyOption=Alt+b
+
+[SubConfigOption/SubSubConfig/1]
+# Int Option
+IntOption=1
+# Key Option
+KeyOption=Control+A
+
+I2024-04-21 17:42:19.853913 testconfig.cpp:60] RawConfig(=, IntOption=0, ColorOption=#000000, BoolOption=True, StringOption=Test String, EnumOption=EnumB, EnumVectorOption=, EnumVectorOption/0=EnumA, EnumVectorOption/1=EnumB, StringVectorOption=, StringVectorOption/0=ABC, StringVectorOption/1=CDE, IntVectorOption=, IntVectorOption/0=0, I18NString=ABCD, I18NString[zh_CN]=A, SubConfigOption=, SubConfigOption/IntOption=1, SubConfigOption/KeyOption=, SubConfigOption/SubSubConfig=, SubConfigOption/SubSubConfig/0=, SubConfigOption/SubSubConfig/0/IntOption=2, SubConfigOption/SubSubConfig/0/KeyOption=Alt+b, SubConfigOption/SubSubConfig/1=, SubConfigOption/SubSubConfig/1/IntOption=1, SubConfigOption/SubSubConfig/1/KeyOption=Control+A)
+[TestConfig/IntOption]
+Type=Integer
+Description="Int Option"
+DefaultValue=0
+IntMin=0
+IntMax=10
+
+[TestConfig/ColorOption]
+Type=Color
+Description="Color Option"
+DefaultValue=#000000
+
+[TestConfig/BoolOption]
+Type=Boolean
+Description="Bool Option"
+DefaultValue=True
+
+[TestConfig/StringOption]
+Type=String
+Description="String Option"
+DefaultValue="Test String"
+
+[TestConfig/EnumOption]
+Type=Enum
+Description="Enum Option"
+DefaultValue=EnumA
+
+[TestConfig/EnumOption/Enum]
+0=EnumA
+1=EnumB
+
+[TestConfig/EnumVectorOption]
+Type=List|Enum
+Description="Enum Vector Option"
+
+[TestConfig/EnumVectorOption/DefaultValue]
+0=EnumA
+1=EnumB
+
+[TestConfig/EnumVectorOption/Enum]
+0=EnumA
+1=EnumB
+2=EnumC
+
+[TestConfig/StringVectorOption]
+Type=List|String
+Description="String Option"
+
+[TestConfig/StringVectorOption/DefaultValue]
+0=ABC
+1=CDE
+
+[TestConfig/IntVectorOption]
+Type=List|Integer
+Description="Int Vector"
+
+[TestConfig/IntVectorOption/DefaultValue]
+0=0
+
+[TestConfig/IntVectorOption/ListConstrain]
+IntMin=0
+
+[TestConfig/I18NString]
+Type=I18NString
+Description=I18NString
+DefaultValue=
+
+[TestConfig/SubConfigOption]
+Type=SubConfigOption$TestSubConfig
+Description="SubConfig Option"
+
+[TestConfig/ExternalOption]
+Type=External
+Description=ExternalOption
+External=fcitx://config/addon/test/ext
+DefaultValue=
+
+[SubConfigOption$TestSubConfig/IntOption]
+Type=Integer
+Description="Int Option"
+DefaultValue=1
+
+[SubConfigOption$TestSubConfig/KeyOption]
+Type=Key
+Description="Key Option"
+DefaultValue=
+
+[SubConfigOption$TestSubConfig/SubSubConfig]
+Type=List|SubConfigOption$SubSubConfig$TestSubSubConfig
+Description="SubSubConfig Option"
+
+[SubConfigOption$TestSubConfig/SubSubConfig/DefaultValue/0]
+# Int Option
+IntOption=2
+# Key Option
+KeyOption=Alt+b
+
+[SubConfigOption$TestSubConfig/SubSubConfig/DefaultValue/1]
+# Int Option
+IntOption=1
+# Key Option
+KeyOption=Control+A
+
+[SubConfigOption$SubSubConfig$TestSubSubConfig/IntOption]
+Type=Integer
+Description="Int Option"
+DefaultValue=1
+
+[SubConfigOption$SubSubConfig$TestSubSubConfig/KeyOption]
+Type=Key
+Description="Key Option"
+DefaultValue=Control+A
+
+I2024-04-21 17:42:19.854081 testconfig.cpp:106] RawConfig(=, A=, A/B=1, A/C=2)
+I2024-04-21 17:42:19.854096 testconfig.cpp:117] RawConfig(=, B=1, C=2)
+I2024-04-21 17:42:19.854106 testconfig.cpp:118] RawConfig(=, B=1, C=2)
+I2024-04-21 17:42:19.854121 testconfig.cpp:132] RawConfig(=, A=, A/B=, A/B/B=1, A/B/C=2, A/C=2)
+I2024-04-21 17:42:19.854140 testconfig.cpp:142] RawConfig(=, A=DEF)
+I2024-04-21 17:42:19.854150 testconfig.cpp:149] RawConfig(=, A=, A/B=, A/B/C=, A/B/C/B=, A/B/C/B/C=DEF)
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testconfig" end time: Apr 21 17:42 CST
+"testconfig" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/43 Testing: testconfigdbus
+26/43 Test: testconfigdbus
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testconfigdbus"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testconfigdbus" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.858489 testconfigdbus.cpp:23] Variant(sig=a{sv}, content=[(OptionA, Variant(sig=a{sv}, content=[(SubOptionB, Variant(sig=s, content=abc))])), (OptionC, Variant(sig=s, content=def))])
+OptionC=def
+
+[OptionA]
+SubOptionB=abc
+
+I2024-04-21 17:42:19.858649 testconfigdbus.cpp:33] [(TestConfig, [(IntOption, Integer, Int Option, Variant(sig=s, content=0), [(IntMin, Variant(sig=s, content=0)), (IntMax, Variant(sig=s, content=10))]), (ColorOption, Color, Color Option, Variant(sig=s, content=#000000), []), (BoolOption, Boolean, Bool Option, Variant(sig=s, content=True), []), (StringOption, String, String Option, Variant(sig=s, content=Test String), []), (EnumOption, Enum, Enum Option, Variant(sig=s, content=EnumA), [(Enum, Variant(sig=a{sv}, content=[(0, Variant(sig=s, content=EnumA)), (1, Variant(sig=s, content=EnumB))]))]), (EnumVectorOption, List|Enum, Enum Vector Option, Variant(sig=a{sv}, content=[(0, Variant(sig=s, content=EnumA)), (1, Variant(sig=s, content=EnumB))]), [(Enum, Variant(sig=a{sv}, content=[(0, Variant(sig=s, content=EnumA)), (1, Variant(sig=s, content=EnumB)), (2, Variant(sig=s, content=EnumC))]))]), (StringVectorOption, List|String, String Option, Variant(sig=a{sv}, content=[(0, Variant(sig=s, content=ABC)), (1, Variant(sig=s, content=CDE))]), []), (IntVectorOption, List|Integer, Int Vector, Variant(sig=a{sv}, content=[(0, Variant(sig=s, content=0))]), [(ListConstrain, Variant(sig=a{sv}, content=[(IntMin, Variant(sig=s, content=0))]))]), (I18NString, I18NString, I18NString, Variant(sig=s, content=), []), (SubConfigOption, SubConfigOption$TestSubConfig, SubConfig Option, Variant(sig=s, content=), []), (ExternalOption, External, ExternalOption, Variant(sig=s, content=), [(External, Variant(sig=s, content=fcitx://config/addon/test/ext))])]), (SubConfigOption$TestSubConfig, [(IntOption, Integer, Int Option, Variant(sig=s, content=1), []), (KeyOption, Key, Key Option, Variant(sig=s, content=), []), (SubSubConfig, List|SubConfigOption$SubSubConfig$TestSubSubConfig, SubSubConfig Option, Variant(sig=a{sv}, content=[(0, Variant(sig=a{sv}, content=[(IntOption, Variant(sig=s, content=2)), (KeyOption, Variant(sig=s, content=Alt+b))])), (1, Variant(sig=a{sv}, content=[(IntOption, Variant(sig=s, content=1)), (KeyOption, Variant(sig=s, content=Control+A))]))]), [])]), (SubConfigOption$SubSubConfig$TestSubSubConfig, [(IntOption, Integer, Int Option, Variant(sig=s, content=1), []), (KeyOption, Key, Key Option, Variant(sig=s, content=Control+A), [])])]
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testconfigdbus" end time: Apr 21 17:42 CST
+"testconfigdbus" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/43 Testing: testinputcontext
+27/43 Test: testinputcontext
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testinputcontext"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testinputcontext" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.873180 instance.cpp:1348] Override Enabled Addons: {testui, testim, testfrontend}
+I2024-04-21 17:42:19.873282 instance.cpp:1349] Override Disabled Addons: {all}
+I2024-04-21 17:42:19.874523 addonmanager.cpp:193] Loaded addon testui
+I2024-04-21 17:42:19.874734 addonmanager.cpp:193] Loaded addon testfrontend
+I2024-04-21 17:42:19.874906 addonmanager.cpp:193] Loaded addon testim
+W2024-04-21 17:42:19.874975 inputmethodmanager.cpp:185] Failed to load input method addon: keyboard
+I2024-04-21 17:42:19.874993 inputmethodmanager.cpp:189] Found 3 input method(s) in addon testim
+I2024-04-21 17:42:19.875030 inputmethodmanager.cpp:116] No valid input method group in configuration. Building a default one
+I2024-04-21 17:42:19.875071 instance.cpp:373] Items in Default: [InputMethodGroupItem(keyboard-us,layout=)]
+I2024-04-21 17:42:19.875096 instance.cpp:378] Generated groups: [Default]
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:19.875307 addonmanager.cpp:296] Unloading addon testim
+I2024-04-21 17:42:19.875328 addonmanager.cpp:296] Unloading addon testfrontend
+I2024-04-21 17:42:19.875346 addonmanager.cpp:296] Unloading addon testui
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"testinputcontext" end time: Apr 21 17:42 CST
+"testinputcontext" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/43 Testing: testsurroundingtext
+28/43 Test: testsurroundingtext
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testsurroundingtext"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testsurroundingtext" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testsurroundingtext" end time: Apr 21 17:42 CST
+"testsurroundingtext" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/43 Testing: testaddon
+29/43 Test: testaddon
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testaddon"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testaddon" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+D2024-04-21 17:42:19.884954 addonmanager.cpp:155] Call loadAddon() with dummyaddon3 checkDependencies() returns 3 Dep: [(dummyaddon, SemanticVersion(2.0.0))] OptDep: []
+D2024-04-21 17:42:19.885003 addonmanager.cpp:155] Call loadAddon() with dummyaddon2 checkDependencies() returns 1 Dep: [(dummyaddon, SemanticVersion(0.1.0))] OptDep: [(dummyaddon, SemanticVersion(2.1.1))]
+D2024-04-21 17:42:19.885022 addonmanager.cpp:155] Call loadAddon() with dummyaddon checkDependencies() returns 0 Dep: [] OptDep: []
+I2024-04-21 17:42:19.885114 addonmanager.cpp:193] Loaded addon dummyaddon
+D2024-04-21 17:42:19.885123 addonmanager.cpp:155] Call loadAddon() with dummyaddon2 checkDependencies() returns 0 Dep: [(dummyaddon, SemanticVersion(0.1.0))] OptDep: [(dummyaddon, SemanticVersion(2.1.1))]
+I2024-04-21 17:42:19.885148 addonmanager.cpp:193] Loaded addon dummyaddon2
+I2024-04-21 17:42:19.885157 addonmanager.cpp:296] Unloading addon dummyaddon2
+I2024-04-21 17:42:19.885166 addonmanager.cpp:296] Unloading addon dummyaddon
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testaddon" end time: Apr 21 17:42 CST
+"testaddon" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/43 Testing: testmenu
+30/43 Test: testmenu
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testmenu"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testmenu" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testmenu" end time: Apr 21 17:42 CST
+"testmenu" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/43 Testing: testuserinterfacemanager
+31/43 Test: testuserinterfacemanager
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testuserinterfacemanager"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testuserinterfacemanager" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testuserinterfacemanager" end time: Apr 21 17:42 CST
+"testuserinterfacemanager" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/43 Testing: testelement
+32/43 Test: testelement
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testelement"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testelement" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testelement" end time: Apr 21 17:42 CST
+"testelement" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/43 Testing: testcandidatelist
+33/43 Test: testcandidatelist
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testcandidatelist"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testcandidatelist" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.903664 testcandidatelist.cpp:273] 2
+I2024-04-21 17:42:19.903709 testcandidatelist.cpp:275] 2
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testcandidatelist" end time: Apr 21 17:42 CST
+"testcandidatelist" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/43 Testing: testicontheme
+34/43 Test: testicontheme
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testicontheme"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testicontheme" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.919346 testicontheme.cpp:14] breeze
+I2024-04-21 17:42:19.920108 testicontheme.cpp:15] Breeze
+I2024-04-21 17:42:19.920126 testicontheme.cpp:16] Breeze by the KDE VDG
+I2024-04-21 17:42:19.920141 testicontheme.cpp:26] Hicolor
+I2024-04-21 17:42:19.920154 testicontheme.cpp:41] /usr/share/icons/breeze/status/24/fcitx-pinyin.svg
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"testicontheme" end time: Apr 21 17:42 CST
+"testicontheme" time elapsed: 00:00:00
+----------------------------------------------------------
+
+35/43 Testing: testtext
+35/43 Test: testtext
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testtext"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testtext" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testtext" end time: Apr 21 17:42 CST
+"testtext" time elapsed: 00:00:00
+----------------------------------------------------------
+
+36/43 Testing: testinstance
+36/43 Test: testinstance
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testinstance"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testinstance" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.932390 instance.cpp:1348] Override Enabled Addons: {testim}
+I2024-04-21 17:42:19.932425 instance.cpp:1349] Override Disabled Addons: {all}
+I2024-04-21 17:42:19.932641 addonmanager.cpp:193] Loaded addon testim
+I2024-04-21 17:42:19.932664 inputmethodmanager.cpp:189] Found 3 input method(s) in addon testim
+I2024-04-21 17:42:19.932682 inputmethodmanager.cpp:116] No valid input method group in configuration. Building a default one
+I2024-04-21 17:42:19.932698 instance.cpp:373] Items in Default: [InputMethodGroupItem(keyboard-us,layout=)]
+I2024-04-21 17:42:19.932709 instance.cpp:378] Generated groups: [Default]
+I2024-04-21 17:42:19.932778 testinstance.cpp:38] Global config reloaded
+I2024-04-21 17:42:19.932815 addonmanager.cpp:296] Unloading addon testim
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testinstance" end time: Apr 21 17:42 CST
+"testinstance" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/43 Testing: testxkbrules
+37/43 Test: testxkbrules
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testxkbrules"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testxkbrules" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+Version: 1.1
+	Layout Name: bqn
+	Layout Description: BQN
+	Layout Languages: eng
+	Layout Name: apl
+	Layout Description: APL
+	Layout Languages: eng
+		Variant Name: dyalog
+		Variant Description: APL symbols (Dyalog APL)
+		Variant Languages: 
+		Variant Name: sax
+		Variant Description: APL symbols (SAX, Sharp APL for Unix)
+		Variant Languages: 
+		Variant Name: unified
+		Variant Description: APL symbols (unified)
+		Variant Languages: 
+		Variant Name: apl2
+		Variant Description: APL symbols (IBM APL2)
+		Variant Languages: 
+		Variant Name: aplplusII
+		Variant Description: APL symbols (Manugistics APL*PLUS II)
+		Variant Languages: 
+		Variant Name: aplx
+		Variant Description: APL symbols (APLX unified)
+		Variant Languages: 
+	Layout Name: ua
+	Layout Description: Ukrainian
+	Layout Languages: ukr,ukr
+		Variant Name: phonetic
+		Variant Description: Ukrainian (phonetic)
+		Variant Languages: 
+		Variant Name: typewriter
+		Variant Description: Ukrainian (typewriter)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Ukrainian (Windows)
+		Variant Languages: 
+		Variant Name: macOS
+		Variant Description: Ukrainian (macOS)
+		Variant Languages: 
+		Variant Name: legacy
+		Variant Description: Ukrainian (legacy)
+		Variant Languages: 
+		Variant Name: homophonic
+		Variant Description: Ukrainian (homophonic)
+		Variant Languages: 
+		Variant Name: crh
+		Variant Description: Crimean Tatar (Turkish Q)
+		Variant Languages: crh
+		Variant Name: crh_f
+		Variant Description: Crimean Tatar (Turkish F)
+		Variant Languages: crh
+		Variant Name: crh_alt
+		Variant Description: Crimean Tatar (Turkish Alt-Q)
+		Variant Languages: crh
+		Variant Name: sun_type6
+		Variant Description: Ukrainian (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: th
+	Layout Description: Thai
+	Layout Languages: tha
+		Variant Name: tis
+		Variant Description: Thai (TIS-820.2538)
+		Variant Languages: 
+		Variant Name: pat
+		Variant Description: Thai (Pattachote)
+		Variant Languages: 
+	Layout Name: tz
+	Layout Description: Swahili (Tanzania)
+	Layout Languages: swa
+	Layout Name: latam
+	Layout Description: Spanish (Latin American)
+	Layout Languages: spa
+		Variant Name: nodeadkeys
+		Variant Description: Spanish (Latin American, no dead keys)
+		Variant Languages: 
+		Variant Name: deadtilde
+		Variant Description: Spanish (Latin American, dead tilde)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Spanish (Latin American, Dvorak)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: Spanish (Latin American, Colemak)
+		Variant Languages: 
+	Layout Name: sk
+	Layout Description: Slovak
+	Layout Languages: slk,slk
+		Variant Name: bksl
+		Variant Description: Slovak (extra backslash)
+		Variant Languages: 
+		Variant Name: qwerty
+		Variant Description: Slovak (QWERTY)
+		Variant Languages: 
+		Variant Name: qwerty_bksl
+		Variant Description: Slovak (QWERTY, extra backslash)
+		Variant Languages: 
+		Variant Name: acc
+		Variant Description: Slovak (ACC layout, only accented letters)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Slovak (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: ru
+	Layout Description: Russian
+	Layout Languages: rus,rus
+		Variant Name: phonetic
+		Variant Description: Russian (phonetic)
+		Variant Languages: 
+		Variant Name: phonetic_winkeys
+		Variant Description: Russian (phonetic, Windows)
+		Variant Languages: 
+		Variant Name: phonetic_YAZHERTY
+		Variant Description: Russian (phonetic, YAZHERTY)
+		Variant Languages: 
+		Variant Name: phonetic_azerty
+		Variant Description: Russian (phonetic, AZERTY)
+		Variant Languages: 
+		Variant Name: phonetic_dvorak
+		Variant Description: Russian (phonetic, Dvorak)
+		Variant Languages: 
+		Variant Name: typewriter
+		Variant Description: Russian (typewriter)
+		Variant Languages: 
+		Variant Name: ruchey_ru
+		Variant Description: Russian (engineering, RU)
+		Variant Languages: 
+		Variant Name: ruchey_en
+		Variant Description: Russian (engineering, EN)
+		Variant Languages: 
+		Variant Name: legacy
+		Variant Description: Russian (legacy)
+		Variant Languages: 
+		Variant Name: typewriter-legacy
+		Variant Description: Russian (typewriter, legacy)
+		Variant Languages: 
+		Variant Name: dos
+		Variant Description: Russian (DOS)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Russian (Macintosh)
+		Variant Languages: 
+		Variant Name: ab
+		Variant Description: Abkhazian (Russia)
+		Variant Languages: abk
+		Variant Name: bak
+		Variant Description: Bashkirian
+		Variant Languages: bak
+		Variant Name: cv
+		Variant Description: Chuvash
+		Variant Languages: chv
+		Variant Name: cv_latin
+		Variant Description: Chuvash (Latin)
+		Variant Languages: chv
+		Variant Name: xal
+		Variant Description: Kalmyk
+		Variant Languages: xal
+		Variant Name: kom
+		Variant Description: Komi
+		Variant Languages: kom
+		Variant Name: chm
+		Variant Description: Mari
+		Variant Languages: chm
+		Variant Name: os_legacy
+		Variant Description: Ossetian (legacy)
+		Variant Languages: oss
+		Variant Name: os_winkeys
+		Variant Description: Ossetian (Windows)
+		Variant Languages: oss
+		Variant Name: srp
+		Variant Description: Serbian (Russia)
+		Variant Languages: rus,srp
+		Variant Name: tt
+		Variant Description: Tatar
+		Variant Languages: tat
+		Variant Name: udm
+		Variant Description: Udmurt
+		Variant Languages: udm
+		Variant Name: sah
+		Variant Description: Yakut
+		Variant Languages: sah
+		Variant Name: chu
+		Variant Description: Church Slavonic
+		Variant Languages: chu
+		Variant Name: ruu
+		Variant Description: Russian (plus Ukrainian and Belarusian letters)
+		Variant Languages: rus,ukr,bel
+		Variant Name: rulemak
+		Variant Description: Russian (Rulemak, phonetic Colemak)
+		Variant Languages: 
+		Variant Name: phonetic_mac
+		Variant Description: Russian (phonetic, Macintosh)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Russian (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: unipunct
+		Variant Description: Russian (with US punctuation)
+		Variant Languages: 
+		Variant Name: gost-6431-75-48
+		Variant Description: Russian (GOST 6431-75)
+		Variant Languages: 
+		Variant Name: gost-14289-88
+		Variant Description: Russian (GOST 14289-88)
+		Variant Languages: 
+		Variant Name: prxn
+		Variant Description: Russian (Polyglot and Reactionary)
+		Variant Languages: rus,ukr,bel,srp,mkd,bul,chu,kaz,kir,uzb,bak,aze,tat,uig,kdr,tyv,kjh,crh,tgk,abk,sah,mon,kal,sjd,chv,oss,krl,ale,wbl,kur,niv,dng,kom,udm,sel,ulc,ude,oac,oaa,gld,eve,evn,kca,itl,yrk,neg
+		Variant Name: winkeys-p
+		Variant Description: Russian (Programmer)
+		Variant Languages: rus
+		Variant Name: typo
+		Variant Description: Russian (plus typographic symbols)
+		Variant Languages: rus
+		Variant Name: rtu
+		Variant Description: Russian (plus Tatar letters)
+		Variant Languages: rus,tat
+	Layout Name: br
+	Layout Description: Portuguese (Brazil)
+	Layout Languages: por,por
+		Variant Name: nodeadkeys
+		Variant Description: Portuguese (Brazil, no dead keys)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Portuguese (Brazil, Dvorak)
+		Variant Languages: 
+		Variant Name: nativo
+		Variant Description: Portuguese (Brazil, Nativo)
+		Variant Languages: 
+		Variant Name: nativo-us
+		Variant Description: Portuguese (Brazil, Nativo for US keyboards)
+		Variant Languages: 
+		Variant Name: thinkpad
+		Variant Description: Portuguese (Brazil, IBM/Lenovo ThinkPad)
+		Variant Languages: 
+		Variant Name: nativo-epo
+		Variant Description: Esperanto (Brazil, Nativo)
+		Variant Languages: epo
+		Variant Name: rus
+		Variant Description: Russian (Brazil, phonetic)
+		Variant Languages: rus
+		Variant Name: sun_type6
+		Variant Description: Portuguese (Brazil, Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: ro
+	Layout Description: Romanian
+	Layout Languages: ron,ron
+		Variant Name: std
+		Variant Description: Romanian (standard)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Romanian (Windows)
+		Variant Languages: 
+		Variant Name: crh_dobruja
+		Variant Description: Crimean Tatar (Dobruja Q)
+		Variant Languages: crh
+		Variant Name: ergonomic
+		Variant Description: Romanian (ergonomic Touchtype)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Romanian (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: pl
+	Layout Description: Polish
+	Layout Languages: pol,pol
+		Variant Name: legacy
+		Variant Description: Polish (legacy)
+		Variant Languages: 
+		Variant Name: qwertz
+		Variant Description: Polish (QWERTZ)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Polish (Dvorak)
+		Variant Languages: 
+		Variant Name: dvorak_quotes
+		Variant Description: Polish (Dvorak, with Polish quotes on quotemark key)
+		Variant Languages: 
+		Variant Name: dvorak_altquotes
+		Variant Description: Polish (Dvorak, with Polish quotes on key 1)
+		Variant Languages: 
+		Variant Name: dvp
+		Variant Description: Polish (programmer Dvorak)
+		Variant Languages: 
+		Variant Name: csb
+		Variant Description: Kashubian
+		Variant Languages: csb
+		Variant Name: szl
+		Variant Description: Silesian
+		Variant Languages: szl
+		Variant Name: ru_phonetic_dvorak
+		Variant Description: Russian (Poland, phonetic Dvorak)
+		Variant Languages: rus
+		Variant Name: intl
+		Variant Description: Polish (intl., with dead keys)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: Polish (Colemak)
+		Variant Languages: 
+		Variant Name: colemak_dh_ansi
+		Variant Description: Polish (Colemak-DH)
+		Variant Languages: 
+		Variant Name: colemak_dh
+		Variant Description: Polish (Colemak-DH ISO)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Polish (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: glagolica
+		Variant Description: Polish (Glagolica)
+		Variant Languages: 
+		Variant Name: lefty
+		Variant Description: Polish (lefty)
+		Variant Languages: 
+	Layout Name: trans
+	Layout Description: International Phonetic Alphabet
+	Layout Languages: 
+		Variant Name: qwerty
+		Variant Description: International Phonetic Alphabet (QWERTY)
+		Variant Languages: 
+	Layout Name: ir
+	Layout Description: Persian
+	Layout Languages: fas
+		Variant Name: pes_keypad
+		Variant Description: Persian (with Persian keypad)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Persian (Windows)
+		Variant Languages: 
+		Variant Name: azb
+		Variant Description: Azerbaijani (Iran)
+		Variant Languages: azb
+		Variant Name: ku
+		Variant Description: Kurdish (Iran, Latin Q)
+		Variant Languages: kur
+		Variant Name: ku_alt
+		Variant Description: Kurdish (Iran, Latin Alt-Q)
+		Variant Languages: kur
+		Variant Name: ku_f
+		Variant Description: Kurdish (Iran, F)
+		Variant Languages: kur
+		Variant Name: ku_ara
+		Variant Description: Kurdish (Iran, Arabic-Latin)
+		Variant Languages: kur
+	Layout Name: custom
+	Layout Description: A user-defined custom Layout
+	Layout Languages: und
+	Layout Name: no
+	Layout Description: Norwegian
+	Layout Languages: nor,nob,nno,nor,nob,nno
+		Variant Name: nodeadkeys
+		Variant Description: Norwegian (no dead keys)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Norwegian (Windows)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Norwegian (Macintosh)
+		Variant Languages: 
+		Variant Name: mac_nodeadkeys
+		Variant Description: Norwegian (Macintosh, no dead keys)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: Norwegian (Colemak)
+		Variant Languages: 
+		Variant Name: colemak_dh
+		Variant Description: Norwegian (Colemak-DH)
+		Variant Languages: 
+		Variant Name: colemak_dh_wide
+		Variant Description: Norwegian (Colemak-DH Wide)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Norwegian (Dvorak)
+		Variant Languages: 
+		Variant Name: smi
+		Variant Description: Northern Saami (Norway)
+		Variant Languages: sme
+		Variant Name: smi_nodeadkeys
+		Variant Description: Northern Saami (Norway, no dead keys)
+		Variant Languages: sme
+		Variant Name: sun_type6
+		Variant Description: Norwegian (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: gn
+	Layout Description: N'Ko (AZERTY)
+	Layout Languages: nqo
+	Layout Name: tm
+	Layout Description: Turkmen
+	Layout Languages: tuk
+		Variant Name: alt
+		Variant Description: Turkmen (Alt-Q)
+		Variant Languages: 
+	Layout Name: np
+	Layout Description: Nepali
+	Layout Languages: nep,sat
+	Layout Name: ancient
+	Layout Description: Ancient
+	Layout Languages: got,uga,ave
+		Variant Name: got
+		Variant Description: Gothic
+		Variant Languages: got
+		Variant Name: uga
+		Variant Description: Ugaritic
+		Variant Languages: uga
+		Variant Name: ave
+		Variant Description: Avestan
+		Variant Languages: ave
+	Layout Name: mt
+	Layout Description: Maltese
+	Layout Languages: mlt
+		Variant Name: us
+		Variant Description: Maltese (US)
+		Variant Languages: 
+		Variant Name: alt-us
+		Variant Description: Maltese (US, with AltGr overrides)
+		Variant Languages: 
+		Variant Name: alt-gb
+		Variant Description: Maltese (UK, with AltGr overrides)
+		Variant Languages: 
+	Layout Name: pt
+	Layout Description: Portuguese
+	Layout Languages: por,por
+		Variant Name: nodeadkeys
+		Variant Description: Portuguese (no dead keys)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Portuguese (Macintosh)
+		Variant Languages: 
+		Variant Name: mac_nodeadkeys
+		Variant Description: Portuguese (Macintosh, no dead keys)
+		Variant Languages: 
+		Variant Name: nativo
+		Variant Description: Portuguese (Nativo)
+		Variant Languages: 
+		Variant Name: nativo-us
+		Variant Description: Portuguese (Nativo for US keyboards)
+		Variant Languages: 
+		Variant Name: nativo-epo
+		Variant Description: Esperanto (Portugal, Nativo)
+		Variant Languages: epo
+		Variant Name: sun_type6
+		Variant Description: Portuguese (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: Portuguese (Colemak)
+		Variant Languages: 
+	Layout Name: my
+	Layout Description: Malay (Jawi, Arabic Keyboard)
+	Layout Languages: ind,msa,min,ace,bjn,tsg,mfa
+		Variant Name: phonetic
+		Variant Description: Malay (Jawi, phonetic)
+		Variant Languages: 
+	Layout Name: mk
+	Layout Description: Macedonian
+	Layout Languages: mkd
+		Variant Name: nodeadkeys
+		Variant Description: Macedonian (no dead keys)
+		Variant Languages: 
+	Layout Name: kg
+	Layout Description: Kyrgyz
+	Layout Languages: kir
+		Variant Name: phonetic
+		Variant Description: Kyrgyz (phonetic)
+		Variant Languages: 
+	Layout Name: tj
+	Layout Description: Tajik
+	Layout Languages: tgk
+		Variant Name: legacy
+		Variant Description: Tajik (legacy)
+		Variant Languages: 
+	Layout Name: mv
+	Layout Description: Dhivehi
+	Layout Languages: div
+	Layout Name: lk
+	Layout Description: Sinhala (phonetic)
+	Layout Languages: sin
+		Variant Name: us
+		Variant Description: Sinhala (US)
+		Variant Languages: 
+		Variant Name: tam_unicode
+		Variant Description: Tamil (Sri Lanka, TamilNet '99)
+		Variant Languages: tam
+		Variant Name: tam_TAB
+		Variant Description: Tamil (Sri Lanka, TamilNet '99, TAB encoding)
+		Variant Languages: tam
+	Layout Name: al
+	Layout Description: Albanian
+	Layout Languages: sqi
+		Variant Name: plisi
+		Variant Description: Albanian (Plisi)
+		Variant Languages: 
+		Variant Name: veqilharxhi
+		Variant Description: Albanian (Veqilharxhi)
+		Variant Languages: 
+	Layout Name: cz
+	Layout Description: Czech
+	Layout Languages: ces,ces
+		Variant Name: bksl
+		Variant Description: Czech (extra backslash)
+		Variant Languages: 
+		Variant Name: qwerty
+		Variant Description: Czech (QWERTY)
+		Variant Languages: 
+		Variant Name: qwerty_bksl
+		Variant Description: Czech (QWERTY, extra backslash)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Czech (QWERTZ, Windows)
+		Variant Languages: 
+		Variant Name: winkeys-qwerty
+		Variant Description: Czech (QWERTY, Windows)
+		Variant Languages: 
+		Variant Name: qwerty-mac
+		Variant Description: Czech (QWERTY, Macintosh)
+		Variant Languages: 
+		Variant Name: ucw
+		Variant Description: Czech (UCW, only accented letters)
+		Variant Languages: 
+		Variant Name: dvorak-ucw
+		Variant Description: Czech (US, Dvorak, UCW support)
+		Variant Languages: 
+		Variant Name: rus
+		Variant Description: Russian (Czechia, phonetic)
+		Variant Languages: rus
+		Variant Name: sun_type6
+		Variant Description: Czech (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: prog
+		Variant Description: Czech (programming)
+		Variant Languages: 
+		Variant Name: prog_typo
+		Variant Description: Czech (programming, typographic)
+		Variant Languages: 
+		Variant Name: coder
+		Variant Description: Czech (coder)
+		Variant Languages: 
+		Variant Name: colemak-ucw
+		Variant Description: Czech (US, Colemak, UCW support)
+		Variant Languages: 
+	Layout Name: brai
+	Layout Description: Braille
+	Layout Languages: 
+		Variant Name: left_hand
+		Variant Description: Braille (left-handed)
+		Variant Languages: 
+		Variant Name: left_hand_invert
+		Variant Description: Braille (left-handed inverted thumb)
+		Variant Languages: 
+		Variant Name: right_hand
+		Variant Description: Braille (right-handed)
+		Variant Languages: 
+		Variant Name: right_hand_invert
+		Variant Description: Braille (right-handed inverted thumb)
+		Variant Languages: 
+	Layout Name: se
+	Layout Description: Swedish
+	Layout Languages: swe,swe
+		Variant Name: nodeadkeys
+		Variant Description: Swedish (no dead keys)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Swedish (Dvorak)
+		Variant Languages: 
+		Variant Name: us_dvorak
+		Variant Description: Swedish (Dvorak, intl.)
+		Variant Languages: 
+		Variant Name: svdvorak
+		Variant Description: Swedish (Svdvorak)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Swedish (Macintosh)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Swedish (US)
+		Variant Languages: 
+		Variant Name: swl
+		Variant Description: Swedish Sign Language
+		Variant Languages: swl
+		Variant Name: smi
+		Variant Description: Northern Saami (Sweden)
+		Variant Languages: sme
+		Variant Name: rus
+		Variant Description: Russian (Sweden, phonetic)
+		Variant Languages: rus
+		Variant Name: dvorak_a5
+		Variant Description: Swedish (Dvorak A5)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Swedish (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: ovd
+		Variant Description: Elfdalian (Sweden, with combining ogonek)
+		Variant Languages: ovd
+	Layout Name: bg
+	Layout Description: Bulgarian
+	Layout Languages: bul
+		Variant Name: phonetic
+		Variant Description: Bulgarian (traditional phonetic)
+		Variant Languages: 
+		Variant Name: bas_phonetic
+		Variant Description: Bulgarian (new phonetic)
+		Variant Languages: 
+		Variant Name: bekl
+		Variant Description: Bulgarian (enhanced)
+		Variant Languages: 
+	Layout Name: pk
+	Layout Description: Urdu (Pakistan)
+	Layout Languages: urd,urd
+		Variant Name: urd-crulp
+		Variant Description: Urdu (Pakistan, CRULP)
+		Variant Languages: 
+		Variant Name: urd-nla
+		Variant Description: Urdu (Pakistan, NLA)
+		Variant Languages: 
+		Variant Name: ara
+		Variant Description: Arabic (Pakistan)
+		Variant Languages: ara
+		Variant Name: snd
+		Variant Description: Sindhi
+		Variant Languages: snd
+		Variant Name: urd-navees
+		Variant Description: Urdu (Pakistan, Navees)
+		Variant Languages: urd
+	Layout Name: au
+	Layout Description: English (Australia)
+	Layout Languages: eng
+	Layout Name: mn
+	Layout Description: Mongolian
+	Layout Languages: mon
+	Layout Name: dz
+	Layout Description: Berber (Algeria, Latin)
+	Layout Languages: tzm,fra
+		Variant Name: ber
+		Variant Description: Berber (Algeria, Tifinagh)
+		Variant Languages: kab
+		Variant Name: azerty-deadkeys
+		Variant Description: Kabyle (AZERTY, with dead keys)
+		Variant Languages: kab
+		Variant Name: qwerty-gb-deadkeys
+		Variant Description: Kabyle (QWERTY, UK, with dead keys)
+		Variant Languages: kab
+		Variant Name: qwerty-us-deadkeys
+		Variant Description: Kabyle (QWERTY, US, with dead keys)
+		Variant Languages: kab
+		Variant Name: ar
+		Variant Description: Arabic (Algeria)
+		Variant Languages: ara
+	Layout Name: me
+	Layout Description: Montenegrin
+	Layout Languages: srp
+		Variant Name: cyrillic
+		Variant Description: Montenegrin (Cyrillic)
+		Variant Languages: 
+		Variant Name: cyrillicyz
+		Variant Description: Montenegrin (Cyrillic, ZE and ZHE swapped)
+		Variant Languages: 
+		Variant Name: cyrillicalternatequotes
+		Variant Description: Montenegrin (Cyrillic, with guillemets)
+		Variant Languages: 
+		Variant Name: latinunicode
+		Variant Description: Montenegrin (Latin, Unicode)
+		Variant Languages: 
+		Variant Name: latinyz
+		Variant Description: Montenegrin (Latin, QWERTY)
+		Variant Languages: 
+		Variant Name: latinunicodeyz
+		Variant Description: Montenegrin (Latin, Unicode, QWERTY)
+		Variant Languages: 
+		Variant Name: latinalternatequotes
+		Variant Description: Montenegrin (Latin, with guillemets)
+		Variant Languages: 
+	Layout Name: lv
+	Layout Description: Latvian
+	Layout Languages: lav,lav
+		Variant Name: apostrophe
+		Variant Description: Latvian (apostrophe)
+		Variant Languages: 
+		Variant Name: tilde
+		Variant Description: Latvian (tilde)
+		Variant Languages: 
+		Variant Name: fkey
+		Variant Description: Latvian (F)
+		Variant Languages: 
+		Variant Name: modern
+		Variant Description: Latvian (Modern Latin)
+		Variant Languages: 
+		Variant Name: modern-cyr
+		Variant Description: Latvian (Modern Cyrillic)
+		Variant Languages: 
+		Variant Name: ergonomic
+		Variant Description: Latvian (ergonomic, ŪGJRMV)
+		Variant Languages: 
+		Variant Name: adapted
+		Variant Description: Latvian (adapted)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Latvian (Dvorak)
+		Variant Languages: 
+		Variant Name: ykeydvorak
+		Variant Description: Latvian (Dvorak, with Y)
+		Variant Languages: 
+		Variant Name: minuskeydvorak
+		Variant Description: Latvian (Dvorak, with minus)
+		Variant Languages: 
+		Variant Name: dvorakprogr
+		Variant Description: Latvian (programmer Dvorak)
+		Variant Languages: 
+		Variant Name: ykeydvorakprogr
+		Variant Description: Latvian (programmer Dvorak, with Y)
+		Variant Languages: 
+		Variant Name: minuskeydvorakprogr
+		Variant Description: Latvian (programmer Dvorak, with minus)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: Latvian (Colemak)
+		Variant Languages: 
+		Variant Name: apostrophecolemak
+		Variant Description: Latvian (Colemak, with apostrophe)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Latvian (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: apostrophe-deadquotes
+		Variant Description: Latvian (apostrophe, dead quotes)
+		Variant Languages: 
+	Layout Name: ba
+	Layout Description: Bosnian
+	Layout Languages: bos
+		Variant Name: alternatequotes
+		Variant Description: Bosnian (with guillemets)
+		Variant Languages: 
+		Variant Name: unicode
+		Variant Description: Bosnian (with Bosnian digraphs)
+		Variant Languages: 
+		Variant Name: unicodeus
+		Variant Description: Bosnian (US, with Bosnian digraphs)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Bosnian (US)
+		Variant Languages: 
+	Layout Name: tw
+	Layout Description: Taiwanese
+	Layout Languages: fox
+		Variant Name: indigenous
+		Variant Description: Taiwanese (indigenous)
+		Variant Languages: ami,tay,bnn,ckv,pwn,pyu,pzh,dru,ssf,szy,tao,tsu,trv,xnb,sxr,uon,fos
+		Variant Name: saisiyat
+		Variant Description: Saisiyat (Taiwan)
+		Variant Languages: xsy
+	Layout Name: rs
+	Layout Description: Serbian
+	Layout Languages: srp,srp
+		Variant Name: alternatequotes
+		Variant Description: Serbian (Cyrillic, with guillemets)
+		Variant Languages: 
+		Variant Name: yz
+		Variant Description: Serbian (Cyrillic, ZE and ZHE swapped)
+		Variant Languages: 
+		Variant Name: latin
+		Variant Description: Serbian (Latin)
+		Variant Languages: 
+		Variant Name: latinalternatequotes
+		Variant Description: Serbian (Latin, with guillemets)
+		Variant Languages: 
+		Variant Name: latinunicode
+		Variant Description: Serbian (Latin, Unicode)
+		Variant Languages: 
+		Variant Name: latinyz
+		Variant Description: Serbian (Latin, QWERTY)
+		Variant Languages: 
+		Variant Name: latinunicodeyz
+		Variant Description: Serbian (Latin, Unicode, QWERTY)
+		Variant Languages: 
+		Variant Name: rue
+		Variant Description: Pannonian Rusyn
+		Variant Languages: rue
+		Variant Name: combiningkeys
+		Variant Description: Serbian (combining accents instead of dead keys)
+		Variant Languages: 
+	Layout Name: dk
+	Layout Description: Danish
+	Layout Languages: dan,dan
+		Variant Name: nodeadkeys
+		Variant Description: Danish (no dead keys)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Danish (Windows)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Danish (Macintosh)
+		Variant Languages: 
+		Variant Name: mac_nodeadkeys
+		Variant Description: Danish (Macintosh, no dead keys)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Danish (Dvorak)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Danish (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: bw
+	Layout Description: Tswana
+	Layout Languages: tsn
+	Layout Name: kr
+	Layout Description: Korean
+	Layout Languages: kor,kor
+		Variant Name: kr104
+		Variant Description: Korean (101/104-key compatible)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Korean (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: nl
+	Layout Description: Dutch
+	Layout Languages: nld,nld
+		Variant Name: us
+		Variant Description: Dutch (US)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Dutch (Macintosh)
+		Variant Languages: 
+		Variant Name: std
+		Variant Description: Dutch (standard)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Dutch (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: et
+	Layout Description: Amharic
+	Layout Languages: amh
+	Layout Name: be
+	Layout Description: Belgian
+	Layout Languages: deu,nld,fra,deu,nld,fra
+		Variant Name: oss
+		Variant Description: Belgian (alt.)
+		Variant Languages: 
+		Variant Name: oss_latin9
+		Variant Description: Belgian (Latin-9 only, alt.)
+		Variant Languages: 
+		Variant Name: iso-alternate
+		Variant Description: Belgian (ISO, alt.)
+		Variant Languages: 
+		Variant Name: nodeadkeys
+		Variant Description: Belgian (no dead keys)
+		Variant Languages: 
+		Variant Name: wang
+		Variant Description: Belgian (Wang 724 AZERTY)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Belgian (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: la
+	Layout Description: Lao
+	Layout Languages: lao
+		Variant Name: stea
+		Variant Description: Lao (STEA)
+		Variant Languages: lao
+	Layout Name: bt
+	Layout Description: Dzongkha
+	Layout Languages: dzo
+	Layout Name: mm
+	Layout Description: Burmese
+	Layout Languages: mya
+		Variant Name: zawgyi
+		Variant Description: Burmese (Zawgyi)
+		Variant Languages: mya
+		Variant Name: mnw
+		Variant Description: Mon
+		Variant Languages: mnw,eng
+		Variant Name: mnw-a1
+		Variant Description: Mon (A1)
+		Variant Languages: mnw
+		Variant Name: shn
+		Variant Description: Shan
+		Variant Languages: shn,eng
+		Variant Name: zgt
+		Variant Description: Shan (Zawgyi)
+		Variant Languages: shn
+	Layout Name: si
+	Layout Description: Slovenian
+	Layout Languages: slv
+		Variant Name: alternatequotes
+		Variant Description: Slovenian (with guillemets)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Slovenian (US)
+		Variant Languages: 
+	Layout Name: am
+	Layout Description: Armenian
+	Layout Languages: hye,hye
+		Variant Name: phonetic
+		Variant Description: Armenian (phonetic)
+		Variant Languages: 
+		Variant Name: phonetic-alt
+		Variant Description: Armenian (alt. phonetic)
+		Variant Languages: 
+		Variant Name: eastern
+		Variant Description: Armenian (eastern)
+		Variant Languages: 
+		Variant Name: eastern-alt
+		Variant Description: Armenian (alt. eastern)
+		Variant Languages: 
+		Variant Name: western
+		Variant Description: Armenian (western)
+		Variant Languages: 
+		Variant Name: olpc-phonetic
+		Variant Description: Armenian (OLPC, phonetic)
+		Variant Languages: 
+	Layout Name: by
+	Layout Description: Belarusian
+	Layout Languages: bel
+		Variant Name: legacy
+		Variant Description: Belarusian (legacy)
+		Variant Languages: 
+		Variant Name: latin
+		Variant Description: Belarusian (Latin)
+		Variant Languages: 
+		Variant Name: intl
+		Variant Description: Belarusian (intl.)
+		Variant Languages: 
+		Variant Name: phonetic
+		Variant Description: Belarusian (phonetic)
+		Variant Languages: 
+		Variant Name: ru
+		Variant Description: Russian (Belarus)
+		Variant Languages: rus
+	Layout Name: vn
+	Layout Description: Vietnamese
+	Layout Languages: vie,vie
+		Variant Name: us
+		Variant Description: Vietnamese (US)
+		Variant Languages: 
+		Variant Name: fr
+		Variant Description: Vietnamese (France)
+		Variant Languages: 
+		Variant Name: aderty
+		Variant Description: Vietnamese (AÐERTY)
+		Variant Languages: 
+		Variant Name: qderty
+		Variant Description: Vietnamese (QĐERTY)
+		Variant Languages: 
+	Layout Name: ml
+	Layout Description: Bambara
+	Layout Languages: bam
+		Variant Name: fr-oss
+		Variant Description: French (Mali, alt.)
+		Variant Languages: fra
+		Variant Name: us-mac
+		Variant Description: English (Mali, US, Macintosh)
+		Variant Languages: eng
+		Variant Name: us-intl
+		Variant Description: English (Mali, US, intl.)
+		Variant Languages: eng
+	Layout Name: ara
+	Layout Description: Arabic
+	Layout Languages: ara,ara
+		Variant Name: digits
+		Variant Description: Arabic (Eastern Arabic numerals)
+		Variant Languages: 
+		Variant Name: azerty
+		Variant Description: Arabic (AZERTY)
+		Variant Languages: 
+		Variant Name: azerty_digits
+		Variant Description: Arabic (AZERTY, Eastern Arabic numerals)
+		Variant Languages: 
+		Variant Name: buckwalter
+		Variant Description: Arabic (Buckwalter)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Arabic (Macintosh)
+		Variant Languages: 
+		Variant Name: mac-phonetic
+		Variant Description: Arabic (Macintosh, phonetic)
+		Variant Languages: 
+		Variant Name: olpc
+		Variant Description: Arabic (OLPC)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Arabic (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: basic_ext
+		Variant Description: Arabic (Arabic numerals, extensions in the 4th level)
+		Variant Languages: 
+		Variant Name: basic_ext_digits
+		Variant Description: Arabic (Eastern Arabic numerals, extensions in the 4th level)
+		Variant Languages: 
+		Variant Name: ergoarabic
+		Variant Description: Arabic (ErgoArabic)
+		Variant Languages: 
+	Layout Name: ie
+	Layout Description: Irish
+	Layout Languages: eng
+		Variant Name: UnicodeExpert
+		Variant Description: Irish (UnicodeExpert)
+		Variant Languages: 
+		Variant Name: CloGaelach
+		Variant Description: CloGaelach
+		Variant Languages: gle
+		Variant Name: ogam
+		Variant Description: Ogham
+		Variant Languages: sga
+		Variant Name: ogam_is434
+		Variant Description: Ogham (IS434)
+		Variant Languages: sga
+	Layout Name: cm
+	Layout Description: English (Cameroon)
+	Layout Languages: eng
+		Variant Name: french
+		Variant Description: French (Cameroon)
+		Variant Languages: fra
+		Variant Name: qwerty
+		Variant Description: Cameroon Multilingual (QWERTY, intl.)
+		Variant Languages: eng,bas,nmg,fub,ewo,xmd,mfh,bkm,ozm,lns,sox,pny,wes,lem,nyj,mfk,mcp,ass,xed,dua,anv,bum,btb,bfd,azo,ken,yam,yat,yas
+		Variant Name: azerty
+		Variant Description: Cameroon (AZERTY, intl.)
+		Variant Languages: fra,bas,nmg,fub,ewo,xmd,mfh,bkm,ozm,lns,sox,pny,wes,lem,nyj,mfk,mcp,ass,xed,dua,anv,bum,btb,bfd,azo,ken,yam,yat,yas
+		Variant Name: dvorak
+		Variant Description: Cameroon (Dvorak, intl.)
+		Variant Languages: 
+		Variant Name: mmuock
+		Variant Description: Mmuock
+		Variant Languages: 
+	Layout Name: iq
+	Layout Description: Arabic (Iraq)
+	Layout Languages: ara
+		Variant Name: ku
+		Variant Description: Kurdish (Iraq, Latin Q)
+		Variant Languages: kur
+		Variant Name: ku_alt
+		Variant Description: Kurdish (Iraq, Latin Alt-Q)
+		Variant Languages: kur
+		Variant Name: ku_f
+		Variant Description: Kurdish (Iraq, F)
+		Variant Languages: kur
+		Variant Name: ku_ara
+		Variant Description: Kurdish (Iraq, Arabic-Latin)
+		Variant Languages: kur
+	Layout Name: af
+	Layout Description: Dari
+	Layout Languages: prs
+		Variant Name: ps
+		Variant Description: Pashto
+		Variant Languages: pus
+		Variant Name: uz
+		Variant Description: Uzbek (Afghanistan)
+		Variant Languages: uzb
+		Variant Name: fa-olpc
+		Variant Description: Dari (Afghanistan, OLPC)
+		Variant Languages: 
+		Variant Name: ps-olpc
+		Variant Description: Pashto (Afghanistan, OLPC)
+		Variant Languages: pus
+		Variant Name: uz-olpc
+		Variant Description: Uzbek (Afghanistan, OLPC)
+		Variant Languages: uzb
+	Layout Name: hr
+	Layout Description: Croatian
+	Layout Languages: hrv
+		Variant Name: alternatequotes
+		Variant Description: Croatian (with guillemets)
+		Variant Languages: 
+		Variant Name: unicode
+		Variant Description: Croatian (with Croatian digraphs)
+		Variant Languages: 
+		Variant Name: unicodeus
+		Variant Description: Croatian (US, with Croatian digraphs)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Croatian (US)
+		Variant Languages: 
+	Layout Name: ma
+	Layout Description: Arabic (Morocco)
+	Layout Languages: ary
+		Variant Name: tifinagh
+		Variant Description: Berber (Morocco, Tifinagh)
+		Variant Languages: ber
+		Variant Name: tifinagh-alt
+		Variant Description: Berber (Morocco, Tifinagh alt.)
+		Variant Languages: ber
+		Variant Name: tifinagh-alt-phonetic
+		Variant Description: Berber (Morocco, Tifinagh phonetic, alt.)
+		Variant Languages: ber
+		Variant Name: tifinagh-extended
+		Variant Description: Berber (Morocco, Tifinagh extended)
+		Variant Languages: ber
+		Variant Name: tifinagh-phonetic
+		Variant Description: Berber (Morocco, Tifinagh phonetic)
+		Variant Languages: ber
+		Variant Name: tifinagh-extended-phonetic
+		Variant Description: Berber (Morocco, Tifinagh extended phonetic)
+		Variant Languages: ber
+		Variant Name: french
+		Variant Description: French (Morocco)
+		Variant Languages: fra
+		Variant Name: rif
+		Variant Description: Tarifit
+		Variant Languages: rif
+	Layout Name: sy
+	Layout Description: Arabic (Syria)
+	Layout Languages: syr
+		Variant Name: syc
+		Variant Description: Syriac
+		Variant Languages: 
+		Variant Name: syc_phonetic
+		Variant Description: Syriac (phonetic)
+		Variant Languages: 
+		Variant Name: ku
+		Variant Description: Kurdish (Syria, Latin Q)
+		Variant Languages: kur
+		Variant Name: ku_alt
+		Variant Description: Kurdish (Syria, Latin Alt-Q)
+		Variant Languages: kur
+		Variant Name: ku_f
+		Variant Description: Kurdish (Syria, F)
+		Variant Languages: kur
+	Layout Name: at
+	Layout Description: German (Austria)
+	Layout Languages: deu
+		Variant Name: nodeadkeys
+		Variant Description: German (Austria, no dead keys)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: German (Austria, Macintosh)
+		Variant Languages: 
+	Layout Name: nz
+	Layout Description: English (New Zealand)
+	Layout Languages: eng
+		Variant Name: mao
+		Variant Description: Maori
+		Variant Languages: mri
+	Layout Name: epo
+	Layout Description: Esperanto
+	Layout Languages: epo
+		Variant Name: legacy
+		Variant Description: Esperanto (legacy)
+		Variant Languages: 
+	Layout Name: eu
+	Layout Description: EurKEY (US)
+	Layout Languages: cat,dan,eng,est,fao,fin,deu,ell,gsw,ita,lav,lit,nld,nor,por,spa,swe
+	Layout Name: za
+	Layout Description: English (South Africa)
+	Layout Languages: eng
+	Layout Name: fo
+	Layout Description: Faroese
+	Layout Languages: fao
+		Variant Name: nodeadkeys
+		Variant Description: Faroese (no dead keys)
+		Variant Languages: 
+	Layout Name: gb
+	Layout Description: English (UK)
+	Layout Languages: eng,eng
+		Variant Name: extd
+		Variant Description: English (UK, extended, Windows)
+		Variant Languages: 
+		Variant Name: intl
+		Variant Description: English (UK, intl., with dead keys)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: English (UK, Dvorak)
+		Variant Languages: 
+		Variant Name: dvorakukp
+		Variant Description: English (UK, Dvorak, with UK punctuation)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: English (UK, Macintosh)
+		Variant Languages: 
+		Variant Name: mac_intl
+		Variant Description: English (UK, Macintosh, intl.)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: English (UK, Colemak)
+		Variant Languages: 
+		Variant Name: colemak_dh
+		Variant Description: English (UK, Colemak-DH)
+		Variant Languages: 
+		Variant Name: gla
+		Variant Description: Scottish Gaelic
+		Variant Languages: eng,gla
+		Variant Name: pl
+		Variant Description: Polish (British keyboard)
+		Variant Languages: pol
+		Variant Name: sun_type6
+		Variant Description: English (UK, Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: ke
+	Layout Description: Swahili (Kenya)
+	Layout Languages: swa
+		Variant Name: kik
+		Variant Description: Kikuyu
+		Variant Languages: kik
+	Layout Name: md
+	Layout Description: Moldavian
+	Layout Languages: ron
+		Variant Name: gag
+		Variant Description: Gagauz (Moldova)
+		Variant Languages: gag
+	Layout Name: us
+	Layout Description: English (US)
+	Layout Languages: eng,eng
+		Variant Name: euro
+		Variant Description: English (US, euro on 5)
+		Variant Languages: 
+		Variant Name: intl
+		Variant Description: English (US, intl., with dead keys)
+		Variant Languages: 
+		Variant Name: alt-intl
+		Variant Description: English (US, alt. intl.)
+		Variant Languages: 
+		Variant Name: altgr-intl
+		Variant Description: English (intl., with AltGr dead keys)
+		Variant Languages: eng,fra,deu
+		Variant Name: mac
+		Variant Description: English (Macintosh)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: English (Colemak)
+		Variant Languages: 
+		Variant Name: colemak_dh
+		Variant Description: English (Colemak-DH)
+		Variant Languages: 
+		Variant Name: colemak_dh_wide
+		Variant Description: English (Colemak-DH Wide)
+		Variant Languages: 
+		Variant Name: colemak_dh_ortho
+		Variant Description: English (Colemak-DH Ortholinear)
+		Variant Languages: 
+		Variant Name: colemak_dh_iso
+		Variant Description: English (Colemak-DH ISO)
+		Variant Languages: 
+		Variant Name: colemak_dh_wide_iso
+		Variant Description: English (Colemak-DH Wide ISO)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: English (Dvorak)
+		Variant Languages: 
+		Variant Name: dvorak-intl
+		Variant Description: English (Dvorak, intl., with dead keys)
+		Variant Languages: 
+		Variant Name: dvorak-alt-intl
+		Variant Description: English (Dvorak, alt. intl.)
+		Variant Languages: 
+		Variant Name: dvorak-l
+		Variant Description: English (Dvorak, left-handed)
+		Variant Languages: 
+		Variant Name: dvorak-r
+		Variant Description: English (Dvorak, right-handed)
+		Variant Languages: 
+		Variant Name: dvorak-classic
+		Variant Description: English (classic Dvorak)
+		Variant Languages: 
+		Variant Name: dvp
+		Variant Description: English (programmer Dvorak)
+		Variant Languages: 
+		Variant Name: dvorak-mac
+		Variant Description: English (Dvorak, Macintosh)
+		Variant Languages: 
+		Variant Name: norman
+		Variant Description: English (Norman)
+		Variant Languages: 
+		Variant Name: symbolic
+		Variant Description: English (US, Symbolic)
+		Variant Languages: 
+		Variant Name: workman
+		Variant Description: English (Workman)
+		Variant Languages: 
+		Variant Name: workman-intl
+		Variant Description: English (Workman, intl., with dead keys)
+		Variant Languages: 
+		Variant Name: olpc2
+		Variant Description: English (the divide/multiply toggle the layout)
+		Variant Languages: 
+		Variant Name: chr
+		Variant Description: Cherokee
+		Variant Languages: chr
+		Variant Name: haw
+		Variant Description: Hawaiian
+		Variant Languages: haw
+		Variant Name: rus
+		Variant Description: Russian (US, phonetic)
+		Variant Languages: rus
+		Variant Name: hbs
+		Variant Description: Serbo-Croatian (US)
+		Variant Languages: eng,bos,hbs,hrv,srp
+		Variant Name: intl-unicode
+		Variant Description: English (US, intl., AltGr Unicode combining)
+		Variant Languages: 
+		Variant Name: alt-intl-unicode
+		Variant Description: English (US, intl., AltGr Unicode combining, alt.)
+		Variant Languages: 
+		Variant Name: ats
+		Variant Description: Atsina
+		Variant Languages: 
+		Variant Name: crd
+		Variant Description: Coeur d'Alene Salish
+		Variant Languages: crd
+		Variant Name: cz_sk_de
+		Variant Description: Czech, Slovak and German (US)
+		Variant Languages: eng,ces,slk,deu
+		Variant Name: cz_sk_pl_de_es_fi_sv
+		Variant Description: Czech, Slovak, Polish, Spanish, Finnish, Swedish and German (US)
+		Variant Languages: eng,ces,slk,pol,deu,spa,fin,swe
+		Variant Name: drix
+		Variant Description: English (Drix)
+		Variant Languages: 
+		Variant Name: de_se_fi
+		Variant Description: German, Swedish and Finnish (US)
+		Variant Languages: eng,deu,swe,fin
+		Variant Name: ibm238l
+		Variant Description: English (US, IBM Arabic 238_L)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: English (US, Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: carpalx
+		Variant Description: English (Carpalx)
+		Variant Languages: 
+		Variant Name: carpalx-intl
+		Variant Description: English (Carpalx, intl., with dead keys)
+		Variant Languages: 
+		Variant Name: carpalx-altgr-intl
+		Variant Description: English (Carpalx, intl., with AltGr dead keys)
+		Variant Languages: 
+		Variant Name: carpalx-full
+		Variant Description: English (Carpalx, full optimization)
+		Variant Languages: 
+		Variant Name: carpalx-full-intl
+		Variant Description: English (Carpalx, full optimization, intl., with dead keys)
+		Variant Languages: 
+		Variant Name: carpalx-full-altgr-intl
+		Variant Description: English (Carpalx, full optimization, intl., with AltGr dead keys)
+		Variant Languages: 
+		Variant Name: 3l
+		Variant Description: English (3l)
+		Variant Languages: 
+		Variant Name: 3l-cros
+		Variant Description: English (3l, Chromebook)
+		Variant Languages: 
+		Variant Name: 3l-emacs
+		Variant Description: English (3l, emacs)
+		Variant Languages: 
+		Variant Name: workman-p
+		Variant Description: English (Workman-P)
+		Variant Languages: eng
+		Variant Name: scn
+		Variant Description: Sicilian (US keyboard)
+		Variant Languages: eng,ita,scn
+		Variant Name: altgr-weur
+		Variant Description: English (Western European AltGr dead keys)
+		Variant Languages: eng,dan,deu,fin,fra,ita,nld,nor,por,spa,swe
+	Layout Name: ge
+	Layout Description: Georgian
+	Layout Languages: kat
+		Variant Name: ergonomic
+		Variant Description: Georgian (ergonomic)
+		Variant Languages: 
+		Variant Name: mess
+		Variant Description: Georgian (MESS)
+		Variant Languages: 
+		Variant Name: os
+		Variant Description: Ossetian (Georgia)
+		Variant Languages: oss
+		Variant Name: ru
+		Variant Description: Russian (Georgia)
+		Variant Languages: rus
+	Layout Name: es
+	Layout Description: Spanish
+	Layout Languages: spa,spa
+		Variant Name: nodeadkeys
+		Variant Description: Spanish (no dead keys)
+		Variant Languages: 
+		Variant Name: deadtilde
+		Variant Description: Spanish (dead tilde)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Spanish (Windows)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Spanish (Dvorak)
+		Variant Languages: 
+		Variant Name: ast
+		Variant Description: Asturian (Spain, with bottom-dot H and L)
+		Variant Languages: ast
+		Variant Name: cat
+		Variant Description: Catalan (Spain, with middle-dot L)
+		Variant Languages: cat
+		Variant Name: sun_type6
+		Variant Description: Spanish (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: ee
+	Layout Description: Estonian
+	Layout Languages: est,est
+		Variant Name: nodeadkeys
+		Variant Description: Estonian (no dead keys)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Estonian (Dvorak)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Estonian (US)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Estonian (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: bd
+	Layout Description: Bangla
+	Layout Languages: ben,sat
+		Variant Name: probhat
+		Variant Description: Bangla (Probhat)
+		Variant Languages: 
+	Layout Name: ph
+	Layout Description: Filipino
+	Layout Languages: eng,bik,ceb,fil,hil,ilo,pam,pag,phi,tgl,war
+		Variant Name: qwerty-bay
+		Variant Description: Filipino (QWERTY, Baybayin)
+		Variant Languages: bik,ceb,fil,hil,ilo,pam,pag,phi,tgl,war
+		Variant Name: capewell-dvorak
+		Variant Description: Filipino (Capewell-Dvorak, Latin)
+		Variant Languages: 
+		Variant Name: capewell-dvorak-bay
+		Variant Description: Filipino (Capewell-Dvorak, Baybayin)
+		Variant Languages: bik,ceb,fil,hil,ilo,pam,pag,phi,tgl,war
+		Variant Name: capewell-qwerf2k6
+		Variant Description: Filipino (Capewell-QWERF 2006, Latin)
+		Variant Languages: 
+		Variant Name: capewell-qwerf2k6-bay
+		Variant Description: Filipino (Capewell-QWERF 2006, Baybayin)
+		Variant Languages: bik,ceb,fil,hil,ilo,pam,pag,phi,tgl,war
+		Variant Name: colemak
+		Variant Description: Filipino (Colemak, Latin)
+		Variant Languages: 
+		Variant Name: colemak-bay
+		Variant Description: Filipino (Colemak, Baybayin)
+		Variant Languages: bik,ceb,fil,hil,ilo,pam,pag,phi,tgl,war
+		Variant Name: dvorak
+		Variant Description: Filipino (Dvorak, Latin)
+		Variant Languages: 
+		Variant Name: dvorak-bay
+		Variant Description: Filipino (Dvorak, Baybayin)
+		Variant Languages: bik,ceb,fil,hil,ilo,pam,pag,phi,tgl,war
+	Layout Name: uz
+	Layout Description: Uzbek
+	Layout Languages: uzb
+		Variant Name: latin
+		Variant Description: Uzbek (Latin)
+		Variant Languages: 
+	Layout Name: lt
+	Layout Description: Lithuanian
+	Layout Languages: lit,lit
+		Variant Name: std
+		Variant Description: Lithuanian (standard)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Lithuanian (US)
+		Variant Languages: 
+		Variant Name: ibm
+		Variant Description: Lithuanian (IBM)
+		Variant Languages: 
+		Variant Name: lekp
+		Variant Description: Lithuanian (LEKP)
+		Variant Languages: 
+		Variant Name: lekpa
+		Variant Description: Lithuanian (LEKPa)
+		Variant Languages: 
+		Variant Name: ratise
+		Variant Description: Lithuanian (Ratise)
+		Variant Languages: 
+		Variant Name: sgs
+		Variant Description: Samogitian
+		Variant Languages: sgs
+		Variant Name: us_dvorak
+		Variant Description: Lithuanian (Dvorak)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Lithuanian (Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: fi
+	Layout Description: Finnish
+	Layout Languages: fin,fin
+		Variant Name: winkeys
+		Variant Description: Finnish (Windows)
+		Variant Languages: 
+		Variant Name: classic
+		Variant Description: Finnish (classic)
+		Variant Languages: 
+		Variant Name: nodeadkeys
+		Variant Description: Finnish (classic, no dead keys)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Finnish (Macintosh)
+		Variant Languages: 
+		Variant Name: smi
+		Variant Description: Northern Saami (Finland)
+		Variant Languages: sme
+		Variant Name: sun_type6
+		Variant Description: Finnish (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: das
+		Variant Description: Finnish (DAS)
+		Variant Languages: 
+		Variant Name: fidvorak
+		Variant Description: Finnish (Dvorak)
+		Variant Languages: 
+	Layout Name: cn
+	Layout Description: Chinese
+	Layout Languages: zho
+		Variant Name: altgr-pinyin
+		Variant Description: Hanyu Pinyin Letters (with AltGr dead keys)
+		Variant Languages: zho
+		Variant Name: mon_trad
+		Variant Description: Mongolian (Bichig)
+		Variant Languages: mvf
+		Variant Name: mon_trad_todo
+		Variant Description: Mongolian (Todo)
+		Variant Languages: mvf
+		Variant Name: mon_trad_xibe
+		Variant Description: Mongolian (Xibe)
+		Variant Languages: sjo
+		Variant Name: mon_trad_manchu
+		Variant Description: Mongolian (Manchu)
+		Variant Languages: mnc
+		Variant Name: mon_trad_galik
+		Variant Description: Mongolian (Galik)
+		Variant Languages: mvf
+		Variant Name: mon_todo_galik
+		Variant Description: Mongolian (Todo Galik)
+		Variant Languages: mvf
+		Variant Name: mon_manchu_galik
+		Variant Description: Mongolian (Manchu Galik)
+		Variant Languages: mnc
+		Variant Name: tib
+		Variant Description: Tibetan
+		Variant Languages: bod
+		Variant Name: tib_asciinum
+		Variant Description: Tibetan (with ASCII numerals)
+		Variant Languages: bod
+		Variant Name: ug
+		Variant Description: Uyghur
+		Variant Languages: uig
+	Layout Name: ca
+	Layout Description: French (Canada)
+	Layout Languages: fra,fra
+		Variant Name: fr-dvorak
+		Variant Description: French (Canada, Dvorak)
+		Variant Languages: 
+		Variant Name: fr-legacy
+		Variant Description: French (Canada, legacy)
+		Variant Languages: 
+		Variant Name: multix
+		Variant Description: Canadian (CSA)
+		Variant Languages: 
+		Variant Name: eng
+		Variant Description: English (Canada)
+		Variant Languages: eng
+		Variant Name: ike
+		Variant Description: Inuktitut
+		Variant Languages: iku
+		Variant Name: kut
+		Variant Description: Kutenai
+		Variant Languages: 
+		Variant Name: shs
+		Variant Description: Secwepemctsin
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Multilingual (Canada, Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: gh
+	Layout Description: English (Ghana)
+	Layout Languages: eng
+		Variant Name: generic
+		Variant Description: English (Ghana, multilingual)
+		Variant Languages: 
+		Variant Name: gillbt
+		Variant Description: English (Ghana, GILLBT)
+		Variant Languages: 
+		Variant Name: akan
+		Variant Description: Akan
+		Variant Languages: aka
+		Variant Name: avn
+		Variant Description: Avatime
+		Variant Languages: avn
+		Variant Name: ewe
+		Variant Description: Ewe
+		Variant Languages: ewe
+		Variant Name: fula
+		Variant Description: Fula
+		Variant Languages: ful
+		Variant Name: ga
+		Variant Description: Ga
+		Variant Languages: gaa
+		Variant Name: hausa
+		Variant Description: Hausa (Ghana)
+		Variant Languages: hau
+	Layout Name: fr
+	Layout Description: French
+	Layout Languages: fra,fra
+		Variant Name: nodeadkeys
+		Variant Description: French (no dead keys)
+		Variant Languages: 
+		Variant Name: oss
+		Variant Description: French (alt.)
+		Variant Languages: 
+		Variant Name: oss_nodeadkeys
+		Variant Description: French (alt., no dead keys)
+		Variant Languages: 
+		Variant Name: oss_latin9
+		Variant Description: French (alt., Latin-9 only)
+		Variant Languages: 
+		Variant Name: latin9
+		Variant Description: French (legacy, alt.)
+		Variant Languages: 
+		Variant Name: latin9_nodeadkeys
+		Variant Description: French (legacy, alt., no dead keys)
+		Variant Languages: 
+		Variant Name: azerty
+		Variant Description: French (AZERTY)
+		Variant Languages: 
+		Variant Name: afnor
+		Variant Description: French (AZERTY, AFNOR)
+		Variant Languages: 
+		Variant Name: bepo
+		Variant Description: French (BEPO)
+		Variant Languages: 
+		Variant Name: bepo_latin9
+		Variant Description: French (BEPO, Latin-9 only)
+		Variant Languages: 
+		Variant Name: bepo_afnor
+		Variant Description: French (BEPO, AFNOR)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: French (Dvorak)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: French (Macintosh)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: French (US)
+		Variant Languages: 
+		Variant Name: bre
+		Variant Description: Breton (France)
+		Variant Languages: bre
+		Variant Name: oci
+		Variant Description: Occitan
+		Variant Languages: oci
+		Variant Name: geo
+		Variant Description: Georgian (France, AZERTY Tskapo)
+		Variant Languages: kat
+		Variant Name: sun_type6
+		Variant Description: French (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: us-alt
+		Variant Description: French (US with dead keys, alt.)
+		Variant Languages: 
+		Variant Name: us-azerty
+		Variant Description: French (US, AZERTY)
+		Variant Languages: 
+	Layout Name: eg
+	Layout Description: Arabic (Egypt)
+	Layout Languages: ara,arz,ara
+		Variant Name: cop
+		Variant Description: Coptic
+		Variant Languages: cop
+	Layout Name: cd
+	Layout Description: French (Democratic Republic of the Congo)
+	Layout Languages: fra
+	Layout Name: tg
+	Layout Description: French (Togo)
+	Layout Languages: fra,ajg,blo,kpo,ewe,fon,fue,gej,ife,kbp,las,dop,mfg,nmz,bud,gng,kdh,soy
+	Layout Name: kz
+	Layout Description: Kazakh
+	Layout Languages: kaz
+		Variant Name: kazrus
+		Variant Description: Kazakh (with Russian)
+		Variant Languages: kaz,rus
+		Variant Name: ext
+		Variant Description: Kazakh (extended)
+		Variant Languages: kaz
+		Variant Name: latin
+		Variant Description: Kazakh (Latin)
+		Variant Languages: kaz
+		Variant Name: ruskaz
+		Variant Description: Russian (Kazakhstan, with Kazakh)
+		Variant Languages: kaz,rus
+	Layout Name: ch
+	Layout Description: German (Switzerland)
+	Layout Languages: deu,gsw,deu,gsw
+		Variant Name: de_nodeadkeys
+		Variant Description: German (Switzerland, no dead keys)
+		Variant Languages: 
+		Variant Name: de_mac
+		Variant Description: German (Switzerland, Macintosh)
+		Variant Languages: 
+		Variant Name: legacy
+		Variant Description: German (Switzerland, legacy)
+		Variant Languages: 
+		Variant Name: fr
+		Variant Description: French (Switzerland)
+		Variant Languages: fra
+		Variant Name: fr_nodeadkeys
+		Variant Description: French (Switzerland, no dead keys)
+		Variant Languages: fra
+		Variant Name: fr_mac
+		Variant Description: French (Switzerland, Macintosh)
+		Variant Languages: fra
+		Variant Name: sun_type6_de
+		Variant Description: German (Switzerland, Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: sun_type6_fr
+		Variant Description: French (Switzerland, Sun Type 6/7)
+		Variant Languages: 
+	Layout Name: gr
+	Layout Description: Greek
+	Layout Languages: ell,ell
+		Variant Name: simple
+		Variant Description: Greek (simple)
+		Variant Languages: 
+		Variant Name: nodeadkeys
+		Variant Description: Greek (no dead keys)
+		Variant Languages: 
+		Variant Name: polytonic
+		Variant Description: Greek (polytonic)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Greek (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: colemak
+		Variant Description: Greek (Colemak)
+		Variant Languages: 
+	Layout Name: tr
+	Layout Description: Turkish
+	Layout Languages: tur,tur
+		Variant Name: f
+		Variant Description: Turkish (F)
+		Variant Languages: 
+		Variant Name: e
+		Variant Description: Turkish (E)
+		Variant Languages: 
+		Variant Name: alt
+		Variant Description: Turkish (Alt-Q)
+		Variant Languages: 
+		Variant Name: intl
+		Variant Description: Turkish (intl., with dead keys)
+		Variant Languages: 
+		Variant Name: ku
+		Variant Description: Kurdish (Turkey, Latin Q)
+		Variant Languages: kur
+		Variant Name: ku_f
+		Variant Description: Kurdish (Turkey, F)
+		Variant Languages: kur
+		Variant Name: ku_alt
+		Variant Description: Kurdish (Turkey, Latin Alt-Q)
+		Variant Languages: kur
+		Variant Name: sun_type6
+		Variant Description: Turkish (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Turkish (i and ı swapped)
+		Variant Languages: 
+		Variant Name: otk
+		Variant Description: Old Turkic
+		Variant Languages: 
+		Variant Name: otkf
+		Variant Description: Old Turkic (F)
+		Variant Languages: 
+		Variant Name: ot
+		Variant Description: Ottoman (Q)
+		Variant Languages: 
+		Variant Name: otf
+		Variant Description: Ottoman (F)
+		Variant Languages: 
+	Layout Name: il
+	Layout Description: Hebrew
+	Layout Languages: heb,heb
+		Variant Name: si2
+		Variant Description: Hebrew (SI-1452-2)
+		Variant Languages: 
+		Variant Name: lyx
+		Variant Description: Hebrew (lyx)
+		Variant Languages: 
+		Variant Name: phonetic
+		Variant Description: Hebrew (phonetic)
+		Variant Languages: 
+		Variant Name: biblical
+		Variant Description: Hebrew (Biblical, Tiro)
+		Variant Languages: 
+		Variant Name: biblicalSIL
+		Variant Description: Hebrew (Biblical, SIL phonetic)
+		Variant Languages: heb
+	Layout Name: de
+	Layout Description: German
+	Layout Languages: deu,deu
+		Variant Name: deadacute
+		Variant Description: German (dead acute)
+		Variant Languages: 
+		Variant Name: deadgraveacute
+		Variant Description: German (dead grave acute)
+		Variant Languages: 
+		Variant Name: deadtilde
+		Variant Description: German (dead tilde)
+		Variant Languages: 
+		Variant Name: nodeadkeys
+		Variant Description: German (no dead keys)
+		Variant Languages: 
+		Variant Name: e1
+		Variant Description: German (E1)
+		Variant Languages: 
+		Variant Name: e2
+		Variant Description: German (E2)
+		Variant Languages: 
+		Variant Name: T3
+		Variant Description: German (T3)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: German (US)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: German (Dvorak)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: German (Macintosh)
+		Variant Languages: 
+		Variant Name: mac_nodeadkeys
+		Variant Description: German (Macintosh, no dead keys)
+		Variant Languages: 
+		Variant Name: neo
+		Variant Description: German (Neo 2)
+		Variant Languages: 
+		Variant Name: qwerty
+		Variant Description: German (QWERTY)
+		Variant Languages: 
+		Variant Name: dsb
+		Variant Description: Lower Sorbian
+		Variant Languages: dsb
+		Variant Name: dsb_qwertz
+		Variant Description: Lower Sorbian (QWERTZ)
+		Variant Languages: dsb
+		Variant Name: ro
+		Variant Description: Romanian (Germany)
+		Variant Languages: ron
+		Variant Name: ro_nodeadkeys
+		Variant Description: Romanian (Germany, no dead keys)
+		Variant Languages: ron
+		Variant Name: ru
+		Variant Description: Russian (Germany, phonetic)
+		Variant Languages: rus
+		Variant Name: tr
+		Variant Description: Turkish (Germany)
+		Variant Languages: tur
+		Variant Name: hu
+		Variant Description: German (with Hungarian letters, no dead keys)
+		Variant Languages: deu,hun
+		Variant Name: pl
+		Variant Description: Polish (Germany, no dead keys)
+		Variant Languages: deu,pol
+		Variant Name: sun_type6
+		Variant Description: German (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: adnw
+		Variant Description: German (Aus der Neo-Welt)
+		Variant Languages: 
+		Variant Name: koy
+		Variant Description: German (KOY)
+		Variant Languages: 
+		Variant Name: bone
+		Variant Description: German (Bone)
+		Variant Languages: 
+		Variant Name: bone_eszett_home
+		Variant Description: German (Bone, eszett in the home row)
+		Variant Languages: 
+		Variant Name: neo_qwertz
+		Variant Description: German (Neo, QWERTZ)
+		Variant Languages: 
+		Variant Name: neo_qwerty
+		Variant Description: German (Neo, QWERTY)
+		Variant Languages: 
+		Variant Name: ru-recom
+		Variant Description: Russian (Germany, recommended)
+		Variant Languages: rus
+		Variant Name: ru-translit
+		Variant Description: Russian (Germany, transliteration)
+		Variant Languages: rus
+	Layout Name: id
+	Layout Description: Indonesian (Latin)
+	Layout Languages: ind,ace,ban,bbc,bew,bjn,btm,bts,bug,gor,jav,jax,mad,mak,min,mui,sas,sun
+		Variant Name: melayu-phonetic
+		Variant Description: Indonesian (Arab Melayu, phonetic)
+		Variant Languages: 
+		Variant Name: melayu-phoneticx
+		Variant Description: Indonesian (Arab Melayu, extended phonetic)
+		Variant Languages: 
+		Variant Name: pegon-phonetic
+		Variant Description: Indonesian (Arab Pegon, phonetic)
+		Variant Languages: 
+		Variant Name: javanese
+		Variant Description: Javanese
+		Variant Languages: 
+	Layout Name: sn
+	Layout Description: Wolof
+	Layout Languages: wol
+	Layout Name: az
+	Layout Description: Azerbaijani
+	Layout Languages: aze
+		Variant Name: cyrillic
+		Variant Description: Azerbaijani (Cyrillic)
+		Variant Languages: 
+	Layout Name: kh
+	Layout Description: Khmer (Cambodia)
+	Layout Languages: khm
+	Layout Name: hu
+	Layout Description: Hungarian
+	Layout Languages: hun,hun
+		Variant Name: standard
+		Variant Description: Hungarian (standard)
+		Variant Languages: 
+		Variant Name: nodeadkeys
+		Variant Description: Hungarian (no dead keys)
+		Variant Languages: 
+		Variant Name: qwerty
+		Variant Description: Hungarian (QWERTY)
+		Variant Languages: 
+		Variant Name: 101_qwertz_comma_dead
+		Variant Description: Hungarian (QWERTZ, 101-key, comma, dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwertz_comma_nodead
+		Variant Description: Hungarian (QWERTZ, 101-key, comma, no dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwertz_dot_dead
+		Variant Description: Hungarian (QWERTZ, 101-key, dot, dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwertz_dot_nodead
+		Variant Description: Hungarian (QWERTZ, 101-key, dot, no dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwerty_comma_dead
+		Variant Description: Hungarian (QWERTY, 101-key, comma, dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwerty_comma_nodead
+		Variant Description: Hungarian (QWERTY, 101-key, comma, no dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwerty_dot_dead
+		Variant Description: Hungarian (QWERTY, 101-key, dot, dead keys)
+		Variant Languages: 
+		Variant Name: 101_qwerty_dot_nodead
+		Variant Description: Hungarian (QWERTY, 101-key, dot, no dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwertz_comma_dead
+		Variant Description: Hungarian (QWERTZ, 102-key, comma, dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwertz_comma_nodead
+		Variant Description: Hungarian (QWERTZ, 102-key, comma, no dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwertz_dot_dead
+		Variant Description: Hungarian (QWERTZ, 102-key, dot, dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwertz_dot_nodead
+		Variant Description: Hungarian (QWERTZ, 102-key, dot, no dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwerty_comma_dead
+		Variant Description: Hungarian (QWERTY, 102-key, comma, dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwerty_comma_nodead
+		Variant Description: Hungarian (QWERTY, 102-key, comma, no dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwerty_dot_dead
+		Variant Description: Hungarian (QWERTY, 102-key, dot, dead keys)
+		Variant Languages: 
+		Variant Name: 102_qwerty_dot_nodead
+		Variant Description: Hungarian (QWERTY, 102-key, dot, no dead keys)
+		Variant Languages: 
+		Variant Name: oldhunlig
+		Variant Description: Old Hungarian (for ligatures)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Hungarian (US)
+		Variant Languages: 
+	Layout Name: ng
+	Layout Description: English (Nigeria)
+	Layout Languages: eng
+		Variant Name: hausa
+		Variant Description: Hausa (Nigeria)
+		Variant Languages: hau
+		Variant Name: igbo
+		Variant Description: Igbo
+		Variant Languages: ibo
+		Variant Name: yoruba
+		Variant Description: Yoruba
+		Variant Languages: yor
+	Layout Name: is
+	Layout Description: Icelandic
+	Layout Languages: isl
+		Variant Name: mac_legacy
+		Variant Description: Icelandic (Macintosh, legacy)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Icelandic (Macintosh)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Icelandic (Dvorak)
+		Variant Languages: 
+	Layout Name: in
+	Layout Description: Indian
+	Layout Languages: hin,anp,awa,bap,bfy,bgc,bhb,bhi,bho,bjj,bra,brx,btv,doi,dty,gbm,gom,gvr,hne,hoc,hoj,jml,kfr,kfy,khn,kok,kru,mag,mai,mar,mgp,mrd,mtr,mwr,nep,new,noe,raj,rjs,sck,srx,swv,taj,tdg,tdh,thl,thq,thr,tkt,wbr,wtm,xnr,xsr,hin,anp,awa,bap,bfy,bgc,bhb,bhi,bho,bjj,bra,brx,btv,doi,dty,gbm,gom,gvr,hne,hoc,hoj,jml,kfr,kfy,khn,kok,kru,mag,mai,mar,mgp,mrd,mtr,mwr,nep,new,noe,raj,rjs,sck,srx,swv,taj,tdg,tdh,thl,thq,thr,tkt,wbr,wtm,xnr,xsr
+		Variant Name: asm-kagapa
+		Variant Description: Assamese (KaGaPa, phonetic)
+		Variant Languages: asm
+		Variant Name: ben
+		Variant Description: Bangla (India)
+		Variant Languages: ben,sat
+		Variant Name: ben_probhat
+		Variant Description: Bangla (India, Probhat)
+		Variant Languages: ben,sat
+		Variant Name: ben_baishakhi
+		Variant Description: Bangla (India, Baishakhi)
+		Variant Languages: ben,sat
+		Variant Name: ben_bornona
+		Variant Description: Bangla (India, Bornona)
+		Variant Languages: ben,sat
+		Variant Name: ben-kagapa
+		Variant Description: Bangla (India, KaGaPa, phonetic)
+		Variant Languages: ben,sat
+		Variant Name: ben_gitanjali
+		Variant Description: Bangla (India, Gitanjali)
+		Variant Languages: ben,sat
+		Variant Name: ben_inscript
+		Variant Description: Bangla (India, Baishakhi InScript)
+		Variant Languages: ben,sat
+		Variant Name: eng
+		Variant Description: English (India, with rupee)
+		Variant Languages: eng
+		Variant Name: guj
+		Variant Description: Gujarati
+		Variant Languages: guj
+		Variant Name: guj-kagapa
+		Variant Description: Gujarati (KaGaPa, phonetic)
+		Variant Languages: guj
+		Variant Name: bolnagri
+		Variant Description: Hindi (Bolnagri)
+		Variant Languages: hin
+		Variant Name: hin-wx
+		Variant Description: Hindi (Wx)
+		Variant Languages: hin
+		Variant Name: hin-kagapa
+		Variant Description: Hindi (KaGaPa, phonetic)
+		Variant Languages: hin
+		Variant Name: kan
+		Variant Description: Kannada
+		Variant Languages: kan
+		Variant Name: kan-kagapa
+		Variant Description: Kannada (KaGaPa, phonetic)
+		Variant Languages: kan
+		Variant Name: mal
+		Variant Description: Malayalam
+		Variant Languages: mal
+		Variant Name: mal_lalitha
+		Variant Description: Malayalam (Lalitha)
+		Variant Languages: mal
+		Variant Name: mal_enhanced
+		Variant Description: Malayalam (enhanced InScript, with rupee)
+		Variant Languages: mal
+		Variant Name: mal_poorna
+		Variant Description: Malayalam (Poorna, extended InScript)
+		Variant Languages: mal
+		Variant Name: mni
+		Variant Description: Manipuri (Meitei)
+		Variant Languages: mni
+		Variant Name: mar-kagapa
+		Variant Description: Marathi (KaGaPa, phonetic)
+		Variant Languages: mar
+		Variant Name: marathi
+		Variant Description: Marathi (enhanced InScript)
+		Variant Languages: mar
+		Variant Name: ori
+		Variant Description: Oriya
+		Variant Languages: ori,sat
+		Variant Name: ori-bolnagri
+		Variant Description: Oriya (Bolnagri)
+		Variant Languages: ori,sat
+		Variant Name: ori-wx
+		Variant Description: Oriya (Wx)
+		Variant Languages: ori,sat
+		Variant Name: guru
+		Variant Description: Punjabi (Gurmukhi)
+		Variant Languages: pan
+		Variant Name: jhelum
+		Variant Description: Punjabi (Gurmukhi Jhelum)
+		Variant Languages: pan
+		Variant Name: san-kagapa
+		Variant Description: Sanskrit (KaGaPa, phonetic)
+		Variant Languages: san
+		Variant Name: sat
+		Variant Description: Santali (Ol Chiki)
+		Variant Languages: sat
+		Variant Name: tamilnet
+		Variant Description: Tamil (TamilNet '99)
+		Variant Languages: tam
+		Variant Name: tamilnet_tamilnumbers
+		Variant Description: Tamil (TamilNet '99 with Tamil numerals)
+		Variant Languages: tam
+		Variant Name: tamilnet_TAB
+		Variant Description: Tamil (TamilNet '99, TAB encoding)
+		Variant Languages: tam
+		Variant Name: tamilnet_TSCII
+		Variant Description: Tamil (TamilNet '99, TSCII encoding)
+		Variant Languages: tam
+		Variant Name: tam
+		Variant Description: Tamil (InScript, with Arabic numerals)
+		Variant Languages: tam
+		Variant Name: tam_tamilnumbers
+		Variant Description: Tamil (InScript, with Tamil numerals)
+		Variant Languages: tam
+		Variant Name: tel
+		Variant Description: Telugu
+		Variant Languages: tel
+		Variant Name: tel-kagapa
+		Variant Description: Telugu (KaGaPa, phonetic)
+		Variant Languages: tel
+		Variant Name: tel-sarala
+		Variant Description: Telugu (Sarala)
+		Variant Languages: tel
+		Variant Name: urd-phonetic
+		Variant Description: Urdu (phonetic)
+		Variant Languages: urd
+		Variant Name: urd-phonetic3
+		Variant Description: Urdu (alt. phonetic)
+		Variant Languages: urd
+		Variant Name: urd-winkeys
+		Variant Description: Urdu (Windows)
+		Variant Languages: urd
+		Variant Name: iipa
+		Variant Description: Indic IPA
+		Variant Languages: eng
+		Variant Name: modi-kagapa
+		Variant Description: Modi (KaGaPa, phonetic)
+		Variant Languages: mar
+		Variant Name: san-misc
+		Variant Description: Sanskrit symbols
+		Variant Languages: san
+		Variant Name: urd-navees
+		Variant Description: Urdu (Navees)
+		Variant Languages: urd
+	Layout Name: it
+	Layout Description: Italian
+	Layout Languages: ita,ita
+		Variant Name: nodeadkeys
+		Variant Description: Italian (no dead keys)
+		Variant Languages: 
+		Variant Name: winkeys
+		Variant Description: Italian (Windows)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Italian (Macintosh)
+		Variant Languages: 
+		Variant Name: us
+		Variant Description: Italian (US)
+		Variant Languages: 
+		Variant Name: ibm
+		Variant Description: Italian (IBM 142)
+		Variant Languages: 
+		Variant Name: fur
+		Variant Description: Friulian (Italy)
+		Variant Languages: fur
+		Variant Name: scn
+		Variant Description: Sicilian
+		Variant Languages: ita,scn
+		Variant Name: geo
+		Variant Description: Georgian (Italy)
+		Variant Languages: kat
+		Variant Name: sun_type6
+		Variant Description: Italian (Sun Type 6/7)
+		Variant Languages: 
+		Variant Name: lld
+		Variant Description: Ladin (Italian keyboard)
+		Variant Languages: ita,lld
+		Variant Name: lldde
+		Variant Description: Ladin (German keyboard)
+		Variant Languages: deu,lld
+		Variant Name: dvorak
+		Variant Description: Italian (Dvorak)
+		Variant Languages: ita
+	Layout Name: jp
+	Layout Description: Japanese
+	Layout Languages: jpn,jpn
+		Variant Name: kana
+		Variant Description: Japanese (Kana)
+		Variant Languages: 
+		Variant Name: kana86
+		Variant Description: Japanese (Kana 86)
+		Variant Languages: 
+		Variant Name: OADG109A
+		Variant Description: Japanese (OADG 109A)
+		Variant Languages: 
+		Variant Name: mac
+		Variant Description: Japanese (Macintosh)
+		Variant Languages: 
+		Variant Name: dvorak
+		Variant Description: Japanese (Dvorak)
+		Variant Languages: 
+		Variant Name: sun_type6
+		Variant Description: Japanese (Sun Type 6)
+		Variant Languages: 
+		Variant Name: sun_type7
+		Variant Description: Japanese (Sun Type 7, PC-compatible)
+		Variant Languages: 
+		Variant Name: sun_type7_suncompat
+		Variant Description: Japanese (Sun Type 7, Sun-compatible)
+		Variant Languages: 
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testxkbrules" end time: Apr 21 17:42 CST
+"testxkbrules" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/43 Testing: testisocodes
+38/43 Test: testisocodes
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testisocodes"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testisocodes" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"testisocodes" end time: Apr 21 17:42 CST
+"testisocodes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+39/43 Testing: testcompose
+39/43 Test: testcompose
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testcompose"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testcompose" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:19.983004 instance.cpp:1348] Override Enabled Addons: {testui, keyboard, testfrontend}
+I2024-04-21 17:42:19.983056 instance.cpp:1349] Override Disabled Addons: {all}
+I2024-04-21 17:42:19.983586 addonmanager.cpp:193] Loaded addon testui
+I2024-04-21 17:42:19.983692 addonmanager.cpp:193] Loaded addon testfrontend
+I2024-04-21 17:42:19.989277 addonmanager.cpp:193] Loaded addon keyboard
+I2024-04-21 17:42:20.018506 inputmethodmanager.cpp:189] Found 734 input method(s) in addon keyboard
+W2024-04-21 17:42:20.018661 inputmethodmanager.cpp:185] Failed to load input method addon: testim
+I2024-04-21 17:42:20.018693 inputmethodmanager.cpp:116] No valid input method group in configuration. Building a default one
+I2024-04-21 17:42:20.018720 instance.cpp:373] Items in Default: [InputMethodGroupItem(keyboard-us,layout=)]
+I2024-04-21 17:42:20.018733 instance.cpp:378] Generated groups: [Default]
+Preedit: ^|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.018933 testfrontend.cpp:75] KeyEvent key: dead_circumflex isRelease: 0 accepted: 1
+Preedit: ^^|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.018953 testfrontend.cpp:75] KeyEvent key: dead_circumflex isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.018967 testfrontend.cpp:28] Commit: ḙ
+Preedit: |
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.018980 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit:  ̣|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.018997 testfrontend.cpp:75] KeyEvent key: dead_belowdot isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.019010 testfrontend.cpp:28] Commit: Ḅ
+Preedit: |
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.019022 testfrontend.cpp:75] KeyEvent key: B isRelease: 0 accepted: 1
+Preedit:  ̣|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.019041 testfrontend.cpp:75] KeyEvent key: dead_belowdot isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.019053 testfrontend.cpp:28] Commit:  
+I2024-04-21 17:42:20.019060 testfrontend.cpp:28] Commit: ̣
+Preedit: |
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.019074 testfrontend.cpp:75] KeyEvent key: A isRelease: 0 accepted: 0
+I2024-04-21 17:42:20.019135 addonmanager.cpp:296] Unloading addon keyboard
+I2024-04-21 17:42:20.019227 addonmanager.cpp:296] Unloading addon testfrontend
+I2024-04-21 17:42:20.019236 addonmanager.cpp:296] Unloading addon testui
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"testcompose" end time: Apr 21 17:42 CST
+"testcompose" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/43 Testing: testemoji
+40/43 Test: testemoji
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testemoji"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testemoji" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:20.029404 addonmanager.cpp:193] Loaded addon emoji
+I2024-04-21 17:42:20.034622 emoji.cpp:221] Trying to load emoji for zh from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/zh.dict): 2141 entry(s) loaded.
+I2024-04-21 17:42:20.039826 emoji.cpp:221] Trying to load emoji for en from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/en.dict): 2180 entry(s) loaded.
+I2024-04-21 17:42:20.048650 emoji.cpp:221] Trying to load emoji for af from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/af.dict): 3202 entry(s) loaded.
+I2024-04-21 17:42:20.053151 emoji.cpp:221] Trying to load emoji for am from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/am.dict): 2802 entry(s) loaded.
+I2024-04-21 17:42:20.055867 emoji.cpp:221] Trying to load emoji for ar from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ar.dict): 3275 entry(s) loaded.
+I2024-04-21 17:42:20.055896 emoji.cpp:221] Trying to load emoji for ar_SA from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ar_SA.dict): 1 entry(s) loaded.
+I2024-04-21 17:42:20.058971 emoji.cpp:221] Trying to load emoji for as from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/as.dict): 3226 entry(s) loaded.
+I2024-04-21 17:42:20.059034 emoji.cpp:221] Trying to load emoji for ast from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ast.dict): 25 entry(s) loaded.
+I2024-04-21 17:42:20.061683 emoji.cpp:221] Trying to load emoji for az from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/az.dict): 2982 entry(s) loaded.
+I2024-04-21 17:42:20.064706 emoji.cpp:221] Trying to load emoji for be from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/be.dict): 3453 entry(s) loaded.
+I2024-04-21 17:42:20.067520 emoji.cpp:221] Trying to load emoji for bg from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/bg.dict): 3181 entry(s) loaded.
+I2024-04-21 17:42:20.070748 emoji.cpp:221] Trying to load emoji for bn from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/bn.dict): 3211 entry(s) loaded.
+I2024-04-21 17:42:20.071548 emoji.cpp:221] Trying to load emoji for br from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/br.dict): 1612 entry(s) loaded.
+I2024-04-21 17:42:20.074195 emoji.cpp:221] Trying to load emoji for bs from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/bs.dict): 3186 entry(s) loaded.
+I2024-04-21 17:42:20.076342 emoji.cpp:221] Trying to load emoji for ca from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ca.dict): 2248 entry(s) loaded.
+I2024-04-21 17:42:20.076475 emoji.cpp:221] Trying to load emoji for ccp from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ccp.dict): 233 entry(s) loaded.
+I2024-04-21 17:42:20.076499 emoji.cpp:221] Trying to load emoji for ceb from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ceb.dict): 6 entry(s) loaded.
+I2024-04-21 17:42:20.079415 emoji.cpp:221] Trying to load emoji for chr from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/chr.dict): 3229 entry(s) loaded.
+I2024-04-21 17:42:20.079449 emoji.cpp:221] Trying to load emoji for ckb from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ckb.dict): 1 entry(s) loaded.
+I2024-04-21 17:42:20.082587 emoji.cpp:221] Trying to load emoji for cs from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/cs.dict): 3168 entry(s) loaded.
+I2024-04-21 17:42:20.085063 emoji.cpp:221] Trying to load emoji for cy from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/cy.dict): 2932 entry(s) loaded.
+I2024-04-21 17:42:20.087756 emoji.cpp:221] Trying to load emoji for da from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/da.dict): 3439 entry(s) loaded.
+I2024-04-21 17:42:20.090068 emoji.cpp:221] Trying to load emoji for de from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/de.dict): 2563 entry(s) loaded.
+I2024-04-21 17:42:20.090200 emoji.cpp:221] Trying to load emoji for de_CH from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/de_CH.dict): 237 entry(s) loaded.
+I2024-04-21 17:42:20.093135 emoji.cpp:221] Trying to load emoji for dsb from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/dsb.dict): 3626 entry(s) loaded.
+I2024-04-21 17:42:20.095835 emoji.cpp:221] Trying to load emoji for el from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/el.dict): 2198 entry(s) loaded.
+I2024-04-21 17:42:20.095865 emoji.cpp:221] Trying to load emoji for en_001 from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/en_001.dict): 18 entry(s) loaded.
+I2024-04-21 17:42:20.096000 emoji.cpp:221] Trying to load emoji for en_AU from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/en_AU.dict): 282 entry(s) loaded.
+I2024-04-21 17:42:20.096090 emoji.cpp:221] Trying to load emoji for en_CA from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/en_CA.dict): 195 entry(s) loaded.
+I2024-04-21 17:42:20.096146 emoji.cpp:221] Trying to load emoji for en_GB from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/en_GB.dict): 45 entry(s) loaded.
+I2024-04-21 17:42:20.098468 emoji.cpp:221] Trying to load emoji for es from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/es.dict): 2404 entry(s) loaded.
+I2024-04-21 17:42:20.099135 emoji.cpp:221] Trying to load emoji for es_419 from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/es_419.dict): 1137 entry(s) loaded.
+I2024-04-21 17:42:20.099582 emoji.cpp:221] Trying to load emoji for es_MX from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/es_MX.dict): 625 entry(s) loaded.
+I2024-04-21 17:42:20.100168 emoji.cpp:221] Trying to load emoji for es_US from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/es_US.dict): 797 entry(s) loaded.
+I2024-04-21 17:42:20.102779 emoji.cpp:221] Trying to load emoji for et from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/et.dict): 2996 entry(s) loaded.
+I2024-04-21 17:42:20.105518 emoji.cpp:221] Trying to load emoji for eu from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/eu.dict): 3421 entry(s) loaded.
+I2024-04-21 17:42:20.108606 emoji.cpp:221] Trying to load emoji for fa from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/fa.dict): 3637 entry(s) loaded.
+I2024-04-21 17:42:20.111406 emoji.cpp:221] Trying to load emoji for fi from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/fi.dict): 3442 entry(s) loaded.
+I2024-04-21 17:42:20.114318 emoji.cpp:221] Trying to load emoji for fil from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/fil.dict): 3424 entry(s) loaded.
+I2024-04-21 17:42:20.117129 emoji.cpp:221] Trying to load emoji for fo from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/fo.dict): 3247 entry(s) loaded.
+I2024-04-21 17:42:20.119041 emoji.cpp:221] Trying to load emoji for fr from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/fr.dict): 1861 entry(s) loaded.
+I2024-04-21 17:42:20.120427 emoji.cpp:221] Trying to load emoji for fr_CA from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/fr_CA.dict): 1475 entry(s) loaded.
+I2024-04-21 17:42:20.123096 emoji.cpp:221] Trying to load emoji for ga from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ga.dict): 3290 entry(s) loaded.
+I2024-04-21 17:42:20.126164 emoji.cpp:221] Trying to load emoji for gd from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/gd.dict): 3516 entry(s) loaded.
+I2024-04-21 17:42:20.128783 emoji.cpp:221] Trying to load emoji for gl from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/gl.dict): 3333 entry(s) loaded.
+I2024-04-21 17:42:20.131945 emoji.cpp:221] Trying to load emoji for gu from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/gu.dict): 3457 entry(s) loaded.
+I2024-04-21 17:42:20.134373 emoji.cpp:221] Trying to load emoji for ha from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ha.dict): 3128 entry(s) loaded.
+I2024-04-21 17:42:20.136743 emoji.cpp:221] Trying to load emoji for he from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/he.dict): 2191 entry(s) loaded.
+I2024-04-21 17:42:20.139954 emoji.cpp:221] Trying to load emoji for hi from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/hi.dict): 3653 entry(s) loaded.
+I2024-04-21 17:42:20.141338 emoji.cpp:221] Trying to load emoji for hi_Latn from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/hi_Latn.dict): 1197 entry(s) loaded.
+I2024-04-21 17:42:20.143915 emoji.cpp:221] Trying to load emoji for hr from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/hr.dict): 3158 entry(s) loaded.
+I2024-04-21 17:42:20.146920 emoji.cpp:221] Trying to load emoji for hsb from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/hsb.dict): 3720 entry(s) loaded.
+I2024-04-21 17:42:20.149452 emoji.cpp:221] Trying to load emoji for hu from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/hu.dict): 2400 entry(s) loaded.
+I2024-04-21 17:42:20.152265 emoji.cpp:221] Trying to load emoji for hy from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/hy.dict): 2999 entry(s) loaded.
+I2024-04-21 17:42:20.152434 emoji.cpp:221] Trying to load emoji for ia from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ia.dict): 239 entry(s) loaded.
+I2024-04-21 17:42:20.154974 emoji.cpp:221] Trying to load emoji for id from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/id.dict): 3005 entry(s) loaded.
+I2024-04-21 17:42:20.157073 emoji.cpp:221] Trying to load emoji for ig from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ig.dict): 2520 entry(s) loaded.
+I2024-04-21 17:42:20.159874 emoji.cpp:221] Trying to load emoji for is from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/is.dict): 3261 entry(s) loaded.
+I2024-04-21 17:42:20.162025 emoji.cpp:221] Trying to load emoji for it from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/it.dict): 2158 entry(s) loaded.
+I2024-04-21 17:42:20.164864 emoji.cpp:221] Trying to load emoji for ja from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ja.dict): 3477 entry(s) loaded.
+I2024-04-21 17:42:20.167469 emoji.cpp:221] Trying to load emoji for jv from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/jv.dict): 3037 entry(s) loaded.
+I2024-04-21 17:42:20.170648 emoji.cpp:221] Trying to load emoji for ka from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ka.dict): 2928 entry(s) loaded.
+I2024-04-21 17:42:20.171249 emoji.cpp:221] Trying to load emoji for kab from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/kab.dict): 812 entry(s) loaded.
+I2024-04-21 17:42:20.173818 emoji.cpp:221] Trying to load emoji for kk from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/kk.dict): 2846 entry(s) loaded.
+I2024-04-21 17:42:20.174807 emoji.cpp:221] Trying to load emoji for kl from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/kl.dict): 2320 entry(s) loaded.
+I2024-04-21 17:42:20.177943 emoji.cpp:221] Trying to load emoji for km from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/km.dict): 3344 entry(s) loaded.
+I2024-04-21 17:42:20.180897 emoji.cpp:221] Trying to load emoji for kn from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/kn.dict): 3516 entry(s) loaded.
+I2024-04-21 17:42:20.183390 emoji.cpp:221] Trying to load emoji for ko from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ko.dict): 3522 entry(s) loaded.
+I2024-04-21 17:42:20.186490 emoji.cpp:221] Trying to load emoji for kok from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/kok.dict): 3382 entry(s) loaded.
+I2024-04-21 17:42:20.188958 emoji.cpp:221] Trying to load emoji for ky from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ky.dict): 2795 entry(s) loaded.
+I2024-04-21 17:42:20.190891 emoji.cpp:221] Trying to load emoji for lb from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/lb.dict): 2412 entry(s) loaded.
+I2024-04-21 17:42:20.193806 emoji.cpp:221] Trying to load emoji for lo from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/lo.dict): 3168 entry(s) loaded.
+I2024-04-21 17:42:20.196224 emoji.cpp:221] Trying to load emoji for lt from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/lt.dict): 3028 entry(s) loaded.
+I2024-04-21 17:42:20.198873 emoji.cpp:221] Trying to load emoji for lv from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/lv.dict): 3125 entry(s) loaded.
+I2024-04-21 17:42:20.200660 emoji.cpp:221] Trying to load emoji for mi from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/mi.dict): 2116 entry(s) loaded.
+I2024-04-21 17:42:20.203356 emoji.cpp:221] Trying to load emoji for mk from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/mk.dict): 2930 entry(s) loaded.
+I2024-04-21 17:42:20.206833 emoji.cpp:221] Trying to load emoji for ml from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ml.dict): 3539 entry(s) loaded.
+I2024-04-21 17:42:20.209668 emoji.cpp:221] Trying to load emoji for mn from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/mn.dict): 3014 entry(s) loaded.
+I2024-04-21 17:42:20.209698 emoji.cpp:221] Trying to load emoji for mni from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/mni.dict): 1 entry(s) loaded.
+I2024-04-21 17:42:20.212864 emoji.cpp:221] Trying to load emoji for mr from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/mr.dict): 3487 entry(s) loaded.
+I2024-04-21 17:42:20.215277 emoji.cpp:221] Trying to load emoji for ms from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ms.dict): 2947 entry(s) loaded.
+I2024-04-21 17:42:20.217245 emoji.cpp:221] Trying to load emoji for mt from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/mt.dict): 2447 entry(s) loaded.
+I2024-04-21 17:42:20.220558 emoji.cpp:221] Trying to load emoji for my from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/my.dict): 3438 entry(s) loaded.
+I2024-04-21 17:42:20.223547 emoji.cpp:221] Trying to load emoji for ne from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ne.dict): 3217 entry(s) loaded.
+I2024-04-21 17:42:20.225742 emoji.cpp:221] Trying to load emoji for nl from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/nl.dict): 2528 entry(s) loaded.
+I2024-04-21 17:42:20.226881 emoji.cpp:221] Trying to load emoji for nn from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/nn.dict): 1126 entry(s) loaded.
+I2024-04-21 17:42:20.229713 emoji.cpp:221] Trying to load emoji for no from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/no.dict): 3514 entry(s) loaded.
+I2024-04-21 17:42:20.233003 emoji.cpp:221] Trying to load emoji for or from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/or.dict): 3590 entry(s) loaded.
+I2024-04-21 17:42:20.236244 emoji.cpp:221] Trying to load emoji for pa from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/pa.dict): 3652 entry(s) loaded.
+I2024-04-21 17:42:20.238320 emoji.cpp:221] Trying to load emoji for pa_Arab from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/pa_Arab.dict): 2435 entry(s) loaded.
+I2024-04-21 17:42:20.241280 emoji.cpp:221] Trying to load emoji for pcm from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/pcm.dict): 3488 entry(s) loaded.
+I2024-04-21 17:42:20.243502 emoji.cpp:221] Trying to load emoji for pl from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/pl.dict): 2392 entry(s) loaded.
+I2024-04-21 17:42:20.246264 emoji.cpp:221] Trying to load emoji for ps from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ps.dict): 3396 entry(s) loaded.
+I2024-04-21 17:42:20.248391 emoji.cpp:221] Trying to load emoji for pt from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/pt.dict): 2145 entry(s) loaded.
+I2024-04-21 17:42:20.250505 emoji.cpp:221] Trying to load emoji for pt_PT from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/pt_PT.dict): 2397 entry(s) loaded.
+I2024-04-21 17:42:20.252689 emoji.cpp:221] Trying to load emoji for qu from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/qu.dict): 2488 entry(s) loaded.
+I2024-04-21 17:42:20.252739 emoji.cpp:221] Trying to load emoji for rm from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/rm.dict): 29 entry(s) loaded.
+I2024-04-21 17:42:20.255070 emoji.cpp:221] Trying to load emoji for ro from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ro.dict): 2318 entry(s) loaded.
+I2024-04-21 17:42:20.258307 emoji.cpp:221] Trying to load emoji for ru from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ru.dict): 2901 entry(s) loaded.
+I2024-04-21 17:42:20.260316 emoji.cpp:221] Trying to load emoji for rw from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/rw.dict): 2624 entry(s) loaded.
+I2024-04-21 17:42:20.261632 emoji.cpp:221] Trying to load emoji for sc from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sc.dict): 2711 entry(s) loaded.
+I2024-04-21 17:42:20.264242 emoji.cpp:221] Trying to load emoji for sd from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sd.dict): 3179 entry(s) loaded.
+I2024-04-21 17:42:20.267407 emoji.cpp:221] Trying to load emoji for si from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/si.dict): 3310 entry(s) loaded.
+I2024-04-21 17:42:20.269953 emoji.cpp:221] Trying to load emoji for sk from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sk.dict): 3240 entry(s) loaded.
+I2024-04-21 17:42:20.272729 emoji.cpp:221] Trying to load emoji for sl from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sl.dict): 3265 entry(s) loaded.
+I2024-04-21 17:42:20.275484 emoji.cpp:221] Trying to load emoji for so from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/so.dict): 3503 entry(s) loaded.
+I2024-04-21 17:42:20.278076 emoji.cpp:221] Trying to load emoji for sq from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sq.dict): 3158 entry(s) loaded.
+I2024-04-21 17:42:20.280857 emoji.cpp:221] Trying to load emoji for sr from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sr.dict): 3428 entry(s) loaded.
+I2024-04-21 17:42:20.281836 emoji.cpp:221] Trying to load emoji for sr_Cyrl_BA from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sr_Cyrl_BA.dict): 1027 entry(s) loaded.
+I2024-04-21 17:42:20.284309 emoji.cpp:221] Trying to load emoji for sr_Latn from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sr_Latn.dict): 3093 entry(s) loaded.
+I2024-04-21 17:42:20.285194 emoji.cpp:221] Trying to load emoji for sr_Latn_BA from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sr_Latn_BA.dict): 960 entry(s) loaded.
+I2024-04-21 17:42:20.287432 emoji.cpp:221] Trying to load emoji for sv from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sv.dict): 2427 entry(s) loaded.
+I2024-04-21 17:42:20.289922 emoji.cpp:221] Trying to load emoji for sw from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sw.dict): 3010 entry(s) loaded.
+I2024-04-21 17:42:20.289989 emoji.cpp:221] Trying to load emoji for sw_KE from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/sw_KE.dict): 93 entry(s) loaded.
+I2024-04-21 17:42:20.293102 emoji.cpp:221] Trying to load emoji for ta from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ta.dict): 3534 entry(s) loaded.
+I2024-04-21 17:42:20.296234 emoji.cpp:221] Trying to load emoji for te from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/te.dict): 3303 entry(s) loaded.
+I2024-04-21 17:42:20.298301 emoji.cpp:221] Trying to load emoji for tg from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/tg.dict): 2480 entry(s) loaded.
+I2024-04-21 17:42:20.301088 emoji.cpp:221] Trying to load emoji for th from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/th.dict): 3050 entry(s) loaded.
+I2024-04-21 17:42:20.301532 emoji.cpp:221] Trying to load emoji for ti from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ti.dict): 1024 entry(s) loaded.
+I2024-04-21 17:42:20.304155 emoji.cpp:221] Trying to load emoji for tk from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/tk.dict): 3129 entry(s) loaded.
+I2024-04-21 17:42:20.305482 emoji.cpp:221] Trying to load emoji for to from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/to.dict): 1695 entry(s) loaded.
+I2024-04-21 17:42:20.308221 emoji.cpp:221] Trying to load emoji for tr from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/tr.dict): 3298 entry(s) loaded.
+I2024-04-21 17:42:20.310238 emoji.cpp:221] Trying to load emoji for ug from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ug.dict): 2280 entry(s) loaded.
+I2024-04-21 17:42:20.313069 emoji.cpp:221] Trying to load emoji for uk from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/uk.dict): 2491 entry(s) loaded.
+I2024-04-21 17:42:20.315664 emoji.cpp:221] Trying to load emoji for ur from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/ur.dict): 2964 entry(s) loaded.
+I2024-04-21 17:42:20.318291 emoji.cpp:221] Trying to load emoji for uz from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/uz.dict): 3259 entry(s) loaded.
+I2024-04-21 17:42:20.321063 emoji.cpp:221] Trying to load emoji for vi from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/vi.dict): 3232 entry(s) loaded.
+I2024-04-21 17:42:20.323000 emoji.cpp:221] Trying to load emoji for wo from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/wo.dict): 2444 entry(s) loaded.
+I2024-04-21 17:42:20.325108 emoji.cpp:221] Trying to load emoji for xh from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/xh.dict): 2501 entry(s) loaded.
+I2024-04-21 17:42:20.327268 emoji.cpp:221] Trying to load emoji for yo from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/yo.dict): 2761 entry(s) loaded.
+I2024-04-21 17:42:20.329034 emoji.cpp:221] Trying to load emoji for yo_BJ from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/yo_BJ.dict): 2108 entry(s) loaded.
+I2024-04-21 17:42:20.331501 emoji.cpp:221] Trying to load emoji for yue from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/yue.dict): 3156 entry(s) loaded.
+I2024-04-21 17:42:20.333949 emoji.cpp:221] Trying to load emoji for yue_Hans from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/yue_Hans.dict): 3147 entry(s) loaded.
+I2024-04-21 17:42:20.335507 emoji.cpp:221] Trying to load emoji for zh_Hant from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/zh_Hant.dict): 1619 entry(s) loaded.
+I2024-04-21 17:42:20.336588 emoji.cpp:221] Trying to load emoji for zh_Hant_HK from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/zh_Hant_HK.dict): 888 entry(s) loaded.
+I2024-04-21 17:42:20.339162 emoji.cpp:221] Trying to load emoji for zu from StandardPathFile(fd=5,path=/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/src/modules/emoji/data/zu.dict): 3051 entry(s) loaded.
+I2024-04-21 17:42:20.339312 addonmanager.cpp:296] Unloading addon emoji
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"testemoji" end time: Apr 21 17:42 CST
+"testemoji" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/43 Testing: testunicode
+41/43 Test: testunicode
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testunicode"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testunicode" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:20.385027 instance.cpp:1348] Override Enabled Addons: {testui, unicode, testfrontend, testim}
+I2024-04-21 17:42:20.385173 instance.cpp:1349] Override Disabled Addons: {all}
+I2024-04-21 17:42:20.387046 addonmanager.cpp:193] Loaded addon unicode
+I2024-04-21 17:42:20.387369 addonmanager.cpp:193] Loaded addon testui
+I2024-04-21 17:42:20.387743 addonmanager.cpp:193] Loaded addon testfrontend
+I2024-04-21 17:42:20.388083 addonmanager.cpp:193] Loaded addon testim
+W2024-04-21 17:42:20.388221 inputmethodmanager.cpp:185] Failed to load input method addon: keyboard
+I2024-04-21 17:42:20.388255 inputmethodmanager.cpp:189] Found 3 input method(s) in addon testim
+I2024-04-21 17:42:20.388315 inputmethodmanager.cpp:116] No valid input method group in configuration. Building a default one
+I2024-04-21 17:42:20.388391 instance.cpp:373] Items in Default: [InputMethodGroupItem(keyboard-us,layout=)]
+I2024-04-21 17:42:20.388429 instance.cpp:378] Generated groups: [Default]
+I2024-04-21 17:42:20.388614 testim.cpp:18] IM keyboard-us received event: Control+Alt+Shift+U0
+Preedit: 
+AuxUp: Unicode: (Type to search unicode by code or description)
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.474607 testfrontend.cpp:75] KeyEvent key: Control+Alt+Shift+u isRelease: 0 accepted: 1
+Preedit: a|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  a LATIN SMALL LETTER A
+A-2.  = EQUALS SIGN
+I2024-04-21 17:42:20.474664 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+Preedit: ap|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  ' APOSTROPHE
+A-2.   <control>
+A-3.  ¯ MACRON
+A-4.  ß LATIN SMALL LETTER SHARP S
+A-5.  ď LATIN SMALL LETTER D WITH CARON
+I2024-04-21 17:42:20.474958 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: a|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  a LATIN SMALL LETTER A
+A-2.  = EQUALS SIGN
+I2024-04-21 17:42:20.475002 testfrontend.cpp:75] KeyEvent key: BackSpace isRelease: 0 accepted: 1
+Preedit: ap|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  ' APOSTROPHE
+A-2.   <control>
+A-3.  ¯ MACRON
+A-4.  ß LATIN SMALL LETTER SHARP S
+A-5.  ď LATIN SMALL LETTER D WITH CARON
+I2024-04-21 17:42:20.475254 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: app|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.   <control>
+A-2.  ß LATIN SMALL LETTER SHARP S
+A-3.  Ŋ LATIN CAPITAL LETTER ENG
+A-4.  ɥ LATIN SMALL LETTER TURNED H
+A-5.  ɫ LATIN SMALL LETTER L WITH MIDDLE TILDE
+I2024-04-21 17:42:20.475413 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: appl|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.   <control>
+A-2.  Ϛ GREEK LETTER STIGMA
+A-3.  ⁡ FUNCTION APPLICATION
+A-4.  㕄 CJK UNIFIED IDEOGRAPH-3544
+A-5.  㡛 CJK UNIFIED IDEOGRAPH-385B
+I2024-04-21 17:42:20.475471 testfrontend.cpp:75] KeyEvent key: l isRelease: 0 accepted: 1
+Preedit: apple|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  䢇 CJK UNIFIED IDEOGRAPH-4887
+A-2.  棠 CJK UNIFIED IDEOGRAPH-68E0
+A-3.  檎 CJK UNIFIED IDEOGRAPH-6A8E
+A-4.  苹 CJK UNIFIED IDEOGRAPH-82F9
+A-5.  蘋 CJK UNIFIED IDEOGRAPH-860B
+I2024-04-21 17:42:20.475516 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: apple |
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  䢇 CJK UNIFIED IDEOGRAPH-4887
+A-2.  棠 CJK UNIFIED IDEOGRAPH-68E0
+A-3.  檎 CJK UNIFIED IDEOGRAPH-6A8E
+A-4.  苹 CJK UNIFIED IDEOGRAPH-82F9
+A-5.  蘋 CJK UNIFIED IDEOGRAPH-860B
+I2024-04-21 17:42:20.475555 testfrontend.cpp:75] KeyEvent key: space isRelease: 0 accepted: 1
+Preedit: apple g|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  䢇 CJK UNIFIED IDEOGRAPH-4887
+A-2.  檎 CJK UNIFIED IDEOGRAPH-6A8E
+A-3.  🍏 GREEN APPLE
+I2024-04-21 17:42:20.476595 testfrontend.cpp:75] KeyEvent key: g isRelease: 0 accepted: 1
+Preedit: apple gr|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  🍏 GREEN APPLE
+I2024-04-21 17:42:20.476771 testfrontend.cpp:75] KeyEvent key: r isRelease: 0 accepted: 1
+Preedit: apple gre|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  🍏 GREEN APPLE
+I2024-04-21 17:42:20.476862 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: apple gree|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  🍏 GREEN APPLE
+I2024-04-21 17:42:20.476940 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: apple green|
+AuxUp: Unicode: 
+AuxDown: 
+Candidates: 
+A-1.  🍏 GREEN APPLE
+I2024-04-21 17:42:20.476972 testfrontend.cpp:75] KeyEvent key: n isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.476985 testfrontend.cpp:28] Commit: 🍏
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.476999 testfrontend.cpp:75] KeyEvent key: Alt+1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.477013 testim.cpp:18] IM keyboard-us received event: Control+Shift+U0
+Preedit: U+|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477028 testfrontend.cpp:75] KeyEvent key: Control+Shift+u isRelease: 0 accepted: 1
+Preedit: U+2|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477047 testfrontend.cpp:75] KeyEvent key: 2 isRelease: 0 accepted: 1
+Preedit: U+|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477065 testfrontend.cpp:75] KeyEvent key: BackSpace isRelease: 0 accepted: 1
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477080 testfrontend.cpp:75] KeyEvent key: BackSpace isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.477093 testim.cpp:18] IM keyboard-us received event: Control+Shift+U0
+Preedit: U+|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477108 testfrontend.cpp:75] KeyEvent key: Control+Shift+u isRelease: 0 accepted: 1
+Preedit: U+2|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477141 testfrontend.cpp:75] KeyEvent key: 2 isRelease: 0 accepted: 1
+Preedit: U+2|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477161 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: U+20|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477182 testfrontend.cpp:75] KeyEvent key: 0 isRelease: 0 accepted: 1
+Preedit: U+20|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477198 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: U+201|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477215 testfrontend.cpp:75] KeyEvent key: 1 isRelease: 0 accepted: 1
+Preedit: U+2018|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477233 testfrontend.cpp:75] KeyEvent key: 8 isRelease: 0 accepted: 1
+Preedit: U+201|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477250 testfrontend.cpp:75] KeyEvent key: BackSpace isRelease: 0 accepted: 1
+Preedit: U+2019|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477267 testfrontend.cpp:75] KeyEvent key: 9 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.477277 testfrontend.cpp:28] Commit: ’
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.477291 testfrontend.cpp:75] KeyEvent key: space isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.477373 addonmanager.cpp:296] Unloading addon testim
+I2024-04-21 17:42:20.477385 addonmanager.cpp:296] Unloading addon testfrontend
+I2024-04-21 17:42:20.477394 addonmanager.cpp:296] Unloading addon testui
+I2024-04-21 17:42:20.477403 addonmanager.cpp:296] Unloading addon unicode
+<end of output>
+Test time =   0.12 sec
+----------------------------------------------------------
+Test Passed.
+"testunicode" end time: Apr 21 17:42 CST
+"testunicode" time elapsed: 00:00:00
+----------------------------------------------------------
+
+42/43 Testing: testspell
+42/43 Test: testspell
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testspell"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testspell" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:20.502264 instance.cpp:1348] Override Enabled Addons: {testui, spell, testfrontend, keyboard}
+I2024-04-21 17:42:20.502373 instance.cpp:1349] Override Disabled Addons: {all}
+I2024-04-21 17:42:20.503463 addonmanager.cpp:193] Loaded addon testui
+I2024-04-21 17:42:20.503674 addonmanager.cpp:193] Loaded addon testfrontend
+I2024-04-21 17:42:20.512028 addonmanager.cpp:193] Loaded addon keyboard
+I2024-04-21 17:42:20.536245 inputmethodmanager.cpp:189] Found 734 input method(s) in addon keyboard
+W2024-04-21 17:42:20.536393 inputmethodmanager.cpp:185] Failed to load input method addon: testim
+I2024-04-21 17:42:20.536425 inputmethodmanager.cpp:116] No valid input method group in configuration. Building a default one
+I2024-04-21 17:42:20.536457 instance.cpp:373] Items in Default: [InputMethodGroupItem(keyboard-us,layout=)]
+I2024-04-21 17:42:20.536469 instance.cpp:378] Generated groups: [Default]
+
+(process:153043): libenchant-WARNING **: 17:42:20.537: Error loading plugin: libaspell.so.15: cannot open shared object file: No such file or directory
+
+
+(process:153043): libenchant-WARNING **: 17:42:20.538: Error loading plugin: libhspell.so.0: cannot open shared object file: No such file or directory
+
+
+(process:153043): libenchant-WARNING **: 17:42:20.538: Error loading plugin: libnuspell.so.5: cannot open shared object file: No such file or directory
+
+
+(process:153043): libenchant-WARNING **: 17:42:20.538: Error loading plugin: libvoikko.so.1: cannot open shared object file: No such file or directory
+
+I2024-04-21 17:42:20.538991 addonmanager.cpp:193] Loaded addon spell
+Preedit: |
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.539084 testfrontend.cpp:75] KeyEvent key: Control+Alt+h isRelease: 0 accepted: 1
+Preedit: a|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  a
+A-2.  ay
+A-3.  ac
+A-4.  az
+A-5.  ad
+I2024-04-21 17:42:20.541537 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+Preedit: ap|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  aps
+A-2.  ape
+A-3.  apt
+A-4.  apa
+A-5.  apo
+I2024-04-21 17:42:20.543157 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: a|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  a
+A-2.  ay
+A-3.  ac
+A-4.  az
+A-5.  ad
+I2024-04-21 17:42:20.544730 testfrontend.cpp:75] KeyEvent key: BackSpace isRelease: 0 accepted: 1
+Preedit: ap|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  aps
+A-2.  ape
+A-3.  apt
+A-4.  apa
+A-5.  apo
+I2024-04-21 17:42:20.546390 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: app|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  app
+A-2.  apps
+A-3.  appro
+A-4.  appel
+A-5.  apple
+I2024-04-21 17:42:20.548152 testfrontend.cpp:75] KeyEvent key: p isRelease: 0 accepted: 1
+Preedit: appl|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  apply
+A-2.  apple
+A-3.  applet
+A-4.  apples
+A-5.  apps
+I2024-04-21 17:42:20.549893 testfrontend.cpp:75] KeyEvent key: l isRelease: 0 accepted: 1
+Preedit: apple|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  apple
+A-2.  apples
+A-3.  applet
+A-4.  applets
+A-5.  appleby
+I2024-04-21 17:42:20.551720 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: apple-|
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.551757 testfrontend.cpp:75] KeyEvent key: minus isRelease: 0 accepted: 1
+Preedit: apple-g|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  g
+A-2.  go
+A-3.  ga
+A-4.  gu
+A-5.  gi
+I2024-04-21 17:42:20.553218 testfrontend.cpp:75] KeyEvent key: g isRelease: 0 accepted: 1
+Preedit: apple-gr|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  gra
+A-2.  grun
+A-3.  grab
+A-4.  grus
+A-5.  gram
+I2024-04-21 17:42:20.554906 testfrontend.cpp:75] KeyEvent key: r isRelease: 0 accepted: 1
+Preedit: apple-gre|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  greg
+A-2.  gree
+A-3.  grew
+A-4.  grey
+A-5.  greys
+I2024-04-21 17:42:20.556690 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: apple-gree|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  gree
+A-2.  grees
+A-3.  greed
+A-4.  greet
+A-5.  green
+I2024-04-21 17:42:20.558458 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: apple-green|
+AuxUp: 
+AuxDown: 
+Candidates: 
+A-1.  green
+A-2.  greene
+A-3.  greens
+A-4.  greeny
+A-5.  greener
+I2024-04-21 17:42:20.560288 testfrontend.cpp:75] KeyEvent key: n isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.560304 testfrontend.cpp:28] Commit: apple-green
+Preedit: |
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.560318 testfrontend.cpp:75] KeyEvent key: Alt+1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.560403 addonmanager.cpp:296] Unloading addon spell
+I2024-04-21 17:42:20.560501 addonmanager.cpp:296] Unloading addon keyboard
+I2024-04-21 17:42:20.560588 addonmanager.cpp:296] Unloading addon testfrontend
+I2024-04-21 17:42:20.560598 addonmanager.cpp:296] Unloading addon testui
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"testspell" end time: Apr 21 17:42 CST
+"testspell" time elapsed: 00:00:00
+----------------------------------------------------------
+
+43/43 Testing: testquickphrase
+43/43 Test: testquickphrase
+Command: "/home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test/testquickphrase"
+Directory: /home/czg_arch/fcitx5_build/src/fcitx5-5.1.8/test
+"testquickphrase" start time: Apr 21 17:42 CST
+Output:
+----------------------------------------------------------
+I2024-04-21 17:42:20.569541 instance.cpp:1348] Override Enabled Addons: {testui, quickphrase, testfrontend, testim}
+I2024-04-21 17:42:20.569580 instance.cpp:1349] Override Disabled Addons: {all}
+I2024-04-21 17:42:20.570059 addonmanager.cpp:193] Loaded addon testui
+I2024-04-21 17:42:20.570155 addonmanager.cpp:193] Loaded addon testfrontend
+I2024-04-21 17:42:20.570365 addonmanager.cpp:193] Loaded addon quickphrase
+I2024-04-21 17:42:20.570477 addonmanager.cpp:193] Loaded addon testim
+W2024-04-21 17:42:20.570516 inputmethodmanager.cpp:185] Failed to load input method addon: keyboard
+I2024-04-21 17:42:20.570525 inputmethodmanager.cpp:189] Found 3 input method(s) in addon testim
+I2024-04-21 17:42:20.570542 inputmethodmanager.cpp:116] No valid input method group in configuration. Building a default one
+I2024-04-21 17:42:20.570569 instance.cpp:373] Items in Default: [InputMethodGroupItem(keyboard-us,layout=)]
+I2024-04-21 17:42:20.570582 instance.cpp:378] Generated groups: [Default]
+I2024-04-21 17:42:20.570655 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570682 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570698 testquickphrase.cpp:25] Quickphrase text: t
+Preedit: t|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570713 testfrontend.cpp:75] KeyEvent key: t isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570725 testquickphrase.cpp:25] Quickphrase text: ta
+Preedit: ta|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570741 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570752 testquickphrase.cpp:25] Quickphrase text: t
+Preedit: t|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570767 testfrontend.cpp:75] KeyEvent key: BackSpace isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570780 testquickphrase.cpp:25] Quickphrase text: te
+Preedit: te|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570794 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570806 testquickphrase.cpp:25] Quickphrase text: tes
+Preedit: tes|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570821 testfrontend.cpp:75] KeyEvent key: s isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570832 testquickphrase.cpp:25] Quickphrase text: test
+Preedit: test|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DISPLAY
+I2024-04-21 17:42:20.570850 testfrontend.cpp:75] KeyEvent key: t isRelease: 0 accepted: 1
+Preedit: test|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DISPLAY
+I2024-04-21 17:42:20.570870 testfrontend.cpp:28] Commit: TEST
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570884 testfrontend.cpp:75] KeyEvent key: 1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570897 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570912 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570925 testquickphrase.cpp:25] Quickphrase text: a
+Preedit: a|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570938 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570950 testquickphrase.cpp:25] Quickphrase text: ab
+Preedit: ab|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570966 testfrontend.cpp:75] KeyEvent key: b isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.570978 testquickphrase.cpp:25] Quickphrase text: abc
+Preedit: abc|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.570992 testfrontend.cpp:75] KeyEvent key: c isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571003 testfrontend.cpp:28] Commit: abc
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571016 testfrontend.cpp:75] KeyEvent key: Return isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571028 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571045 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571058 testquickphrase.cpp:25] Quickphrase text: A
+Preedit: A|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF BC
+2.  abcd BCD
+I2024-04-21 17:42:20.571078 testfrontend.cpp:75] KeyEvent key: A isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571090 testquickphrase.cpp:25] Quickphrase text: AB
+Preedit: AB|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF C
+2.  abcd CD
+I2024-04-21 17:42:20.571110 testfrontend.cpp:75] KeyEvent key: B isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571122 testquickphrase.cpp:25] Quickphrase text: ABC
+Preedit: ABC|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF 
+2.  abcd D
+I2024-04-21 17:42:20.571142 testfrontend.cpp:75] KeyEvent key: C isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571153 testquickphrase.cpp:25] Quickphrase text: ABCD
+Preedit: ABCD|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  abcd 
+I2024-04-21 17:42:20.571171 testfrontend.cpp:75] KeyEvent key: D isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571182 testfrontend.cpp:28] Commit: abcd
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571195 testfrontend.cpp:75] KeyEvent key: 1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571207 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571223 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571235 testquickphrase.cpp:25] Quickphrase text: A
+Preedit: A|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF BC
+2.  abcd BCD
+I2024-04-21 17:42:20.571255 testfrontend.cpp:75] KeyEvent key: A isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571266 testquickphrase.cpp:25] Quickphrase text: AB
+Preedit: AB|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF C
+2.  abcd CD
+I2024-04-21 17:42:20.571287 testfrontend.cpp:75] KeyEvent key: B isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571298 testquickphrase.cpp:25] Quickphrase text: ABC
+Preedit: ABC|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF 
+2.  abcd D
+I2024-04-21 17:42:20.571318 testfrontend.cpp:75] KeyEvent key: C isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571329 testfrontend.cpp:28] Commit: DEF
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571341 testfrontend.cpp:75] KeyEvent key: 1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571354 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571370 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571382 testquickphrase.cpp:25] Quickphrase text: A
+Preedit: A|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF BC
+2.  abcd BCD
+I2024-04-21 17:42:20.571403 testfrontend.cpp:75] KeyEvent key: A isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571414 testquickphrase.cpp:25] Quickphrase text: AB
+Preedit: AB|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF C
+2.  abcd CD
+I2024-04-21 17:42:20.571434 testfrontend.cpp:75] KeyEvent key: B isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571447 testquickphrase.cpp:25] Quickphrase text: ABC
+Preedit: ABC|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+1.  DEF 
+2.  abcd D
+I2024-04-21 17:42:20.571466 testfrontend.cpp:75] KeyEvent key: C isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571476 testfrontend.cpp:28] Commit: abcd
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571489 testfrontend.cpp:75] KeyEvent key: 2 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571499 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571514 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571527 testquickphrase.cpp:25] Quickphrase text: D
+Preedit: D|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571541 testfrontend.cpp:75] KeyEvent key: D isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571552 testquickphrase.cpp:25] Quickphrase text: DE
+Preedit: DE|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571569 testfrontend.cpp:75] KeyEvent key: E isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571582 testquickphrase.cpp:25] Quickphrase text: DEF
+Preedit: DEF|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571597 testfrontend.cpp:75] KeyEvent key: F isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571609 testquickphrase.cpp:25] Quickphrase text: DEF1
+Preedit: DEF1|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571624 testfrontend.cpp:75] KeyEvent key: 1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571634 testfrontend.cpp:28] Commit: DEF1
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571648 testfrontend.cpp:75] KeyEvent key: Return isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571660 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571676 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+Preedit: t|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571694 testfrontend.cpp:75] KeyEvent key: t isRelease: 0 accepted: 1
+Preedit: te|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571715 testfrontend.cpp:75] KeyEvent key: e isRelease: 0 accepted: 1
+Preedit: tes|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571734 testfrontend.cpp:75] KeyEvent key: s isRelease: 0 accepted: 1
+Preedit: test|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571752 testfrontend.cpp:75] KeyEvent key: t isRelease: 0 accepted: 1
+Preedit: test1|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571771 testfrontend.cpp:75] KeyEvent key: 1 isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571782 testfrontend.cpp:28] Commit: test1
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571796 testfrontend.cpp:75] KeyEvent key: Return isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571808 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571824 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571837 testquickphrase.cpp:114] Quickphrase text: a
+Preedit: a|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571852 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571863 testquickphrase.cpp:114] Quickphrase text: ab
+Preedit: ab|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571878 testfrontend.cpp:75] KeyEvent key: b isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571890 testquickphrase.cpp:114] Quickphrase text: abc
+Preedit: abc|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+a.  DISPLAY1
+b.  DISPLAY2
+c.  DISPLAY3
+I2024-04-21 17:42:20.571913 testfrontend.cpp:75] KeyEvent key: c isRelease: 0 accepted: 1
+Preedit: abc|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+a.  DISPLAY1
+b.  DISPLAY2
+c.  DISPLAY3
+I2024-04-21 17:42:20.571937 testquickphrase.cpp:114] Quickphrase text: abcf
+Preedit: abcf|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+a.  DISPLAY3
+I2024-04-21 17:42:20.571955 testfrontend.cpp:75] KeyEvent key: c isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571966 testfrontend.cpp:28] Commit: CALLBACK
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.571979 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.571991 testim.cpp:18] IM keyboard-us received event: Super+grave0
+Preedit: |
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.572007 testfrontend.cpp:75] KeyEvent key: Super+grave isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.572019 testquickphrase.cpp:114] Quickphrase text: a
+Preedit: a|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.572034 testfrontend.cpp:75] KeyEvent key: a isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.572045 testquickphrase.cpp:114] Quickphrase text: au
+Preedit: au|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.572059 testfrontend.cpp:75] KeyEvent key: u isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.572071 testquickphrase.cpp:114] Quickphrase text: aut
+Preedit: aut|
+AuxUp: Quick Phrase: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.572085 testfrontend.cpp:75] KeyEvent key: t isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.572097 testquickphrase.cpp:114] Quickphrase text: auto
+I2024-04-21 17:42:20.572104 testfrontend.cpp:28] Commit: AUTOCOMMIT
+Preedit: 
+AuxUp: 
+AuxDown: 
+Candidates: 
+I2024-04-21 17:42:20.572117 testfrontend.cpp:75] KeyEvent key: o isRelease: 0 accepted: 1
+I2024-04-21 17:42:20.572180 addonmanager.cpp:296] Unloading addon testim
+I2024-04-21 17:42:20.572191 addonmanager.cpp:296] Unloading addon quickphrase
+I2024-04-21 17:42:20.572201 addonmanager.cpp:296] Unloading addon testfrontend
+I2024-04-21 17:42:20.572210 addonmanager.cpp:296] Unloading addon testui
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"testquickphrase" end time: Apr 21 17:42 CST
+"testquickphrase" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 21 17:42 CST

@@ -1,0 +1,14 @@
+[Addon]
+Name=DBus Virtual Keyboard
+Comment=A virtual keyboard backend based on DBus
+Type=SharedLibrary
+Library=libvirtualkeyboard
+Category=UI
+Version=5.1.8
+UIPriority=0
+OnDemand=True
+UIType=OnScreenKeyboard
+
+[Addon/Dependencies]
+0=dbus
+1=core:5.1.8
